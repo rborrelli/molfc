@@ -5,9 +5,10 @@ for non-linear molecular systems and simulate electronic spectra in the harmonic
 normal mode displacements and Duschinsky effects.
 
 1. R. Borrelli, A. Capobianco and A. Peluso J. Phys. Chem. A 116 9934 (2012).
-2. R. Borrelli and A. Peluso J. Chem. Phys. 129, 064116 (2008).
 3. R. Borrelli and A. Peluso J. Chem. Phys. 125, 194308 (2006).
+2. R. Borrelli and A. Peluso J. Chem. Phys. 129, 064116 (2008).
 4. R. Borrelli and A. Peluso J. Chem. Phys. 119, 16 (2003).
+5. R. Borrelli, A. Capobianco, A. Peluso, Can. J. Chem., 91, 495 (2013).
 
 ##Downloading the code
 Then, to clone the repository, you can simply run

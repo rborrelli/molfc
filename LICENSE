@@ -5,30 +5,23 @@ With regard to the MolFC programs, with which you have supplied me a copy, I
 agree to the following conditions:
 
 1) I will not supply a copy of the code to anyone outside my institution or
-   corporation for any reason whatsoever. Instead, I will refer any requests for
-   copies of the program to you at the Theoretical Chemistry Group of the
-   University of Salerno. This in no way limits my making of copies of the
+   corporation for any reason whatsoever.  This in no way limits my making of copies of the
    codefor backup purposes, or for running on more than one computer system at my
    institution or home.
 
 2) I understand that copyright or ownership rights to MolFC are retained by
-   the University of Salernoand contributors to the MolFC package. I will not
+   the author and contributors to the MolFC package. I will not
    incorporate any part of MolFC into any other program system, either for sale
    or for non-profit distribution, without written permission from the
-   Theoretical Chemistry Group of the University of Salerno, 
+   author.
    
-3) I understand that MolFC cannot be considered to be bug free, and
-   accordingly the Theoretical Chemistry Group of the University of Salerno
-   supplies the MolFC software on an "as is" basis, with no additional
-   responsibility or liability,
-
-4) If results obtained with MolFC are published in the scientific literature,
+3) If results obtained with MolFC are published in the scientific literature,
    I will reference the program from the articles 
    Borrelli R., A. Peluso J. Chem.  Phys., 125, 194308 (2006).
    Borrelli R., Capobianco A., Peluso A., J. Phys. Chem. A, 116, 9934 (2012).
    Borrelli R., Capobianco A., Peluso A., Can. J. Chem., 91, 495 (2013).
 
-5) This license is considered a "Research Group" license. Thus anyone directly
+4) This license is considered a "Research Group" license. Thus anyone directly
    associated with yourresearch group is covered by the license and may share
    your copy of MolFC on all of your group's computer resources.
 
