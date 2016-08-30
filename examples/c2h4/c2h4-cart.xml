@@ -1,0 +1,53 @@
+<!-- Input for Franck-Condon calculation -->
+
+<input>
+
+  <system>
+
+    <state id="S1" >
+      <molecule id="c2h4">
+        <structure nat="6">
+          <file type="gaussian" path="./"> c2h4_s1_D2.out  </file>
+        </structure>
+        <normal_modes massw=".false." >
+          <file type="g03hp" path="./"> c2h4_s1_D2.out  </file>
+        </normal_modes>
+      </molecule>
+    </state>
+
+    <state id="S0" >
+      <molecule id="c2h4">
+        <structure nat="6">
+          <file type="gaussian" path="./"> c2h4_s0_D2.out  </file>
+        </structure>
+        <normal_modes  massw=".false.">
+          <file type="g03hp" path="./"> c2h4_s0_D2.out </file>
+        </normal_modes>
+      </molecule>
+    </state>
+
+  </system>
+
+  <!--<proc>
+	<reorder state="S0" molecule="c2h4" data="vibrations">
+	  4 6 8 10 7 9  3 5 11 1 2 12 
+	</reorder>
+	<reorder state="S1" molecule="c2h4" data="vibrations">
+	  3 6 8 10 7 9 1 5 12 4 2 11
+	</reorder>
+  </proc>-->
+
+  <job>
+        <transform molecule="c2h4" coord="cartesian" />
+
+        <fc printfc=".true." ftol="1.0e-4" pert=".true." order="1">
+      	  <spectrum file="fc.dat" emin="0.0" emax="2000.0" tol="1.0e-5" />
+      	  <active state="S0">
+	    <vibration id="1,2" nq="50" />
+	  </active>
+        </fc>
+
+    </job>
+
+</input>
+

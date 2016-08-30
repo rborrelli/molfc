@@ -1,0 +1,38 @@
+                   +--------------------------------------------------+
+                   |          Molecular Franck-Condon Factors         |
+                   |               Calculation  Package               |
+                   |             Version 3.0       Jan 2015           |
+                   |                                                  |
+                   |              Theoretical Chemistry               |
+                   |               University of Torino               |
+                   |                                                  |
+                   |                                                  |
+                   |            Implemented and mantained by          |
+                   |                Raffaele Borrelli                 |
+                   |            raffaele.borrelli@unito.it            |
+                   +--------------------------------------------------+
+
+
+
+                      ==============================================
+                      Job started on:  26  November 2015 at 16: 9:32
+                      ==============================================
+
+
+
+
+  =========================================
+  Process ID:   15652
+  Running on host: silversurfer.lan                                  
+  =========================================
+
+  reading Structure for state |S0>, molecule <c2h4>   from file ./c2h4_s0_D2.out 
+  reading Vibrations for state |S0>, molecule <c2h4>   from file ./c2h4_s0_D2.out 
+  Scaling frequencies of state   1 by a factor   1.0000
+  reading Structure for state |S1>, molecule <c2h4>   from file ./c2h4_s1_D2.out 
+  reading Vibrations for state |S1>, molecule <c2h4>   from file ./c2h4_s1_D2.out 
+  Scaling frequencies of state   2 by a factor   1.0000
+ ===================================
+ ERROR:                             
+ NOT IMPLEMENTED. TELL THE AUTHOR TO DO IT!!
+ ===================================
