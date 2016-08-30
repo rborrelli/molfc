@@ -1,0 +1,36 @@
+99001 format (1x,f10.1,1x,i10,1x,f10.1,1x,i10,1x,f10.1)
+99002 format (i5,2x,'vibrator',2x,'freq(0-1)=',f8.2,2x, &
+             'freq(har)=',f8.2,2x,'anh(cm-1)=',f8.2,2x, &
+             'g =',i2)
+99022 format (i5,2x,'p-in-box',2x,'freq(0-1)=',f8.2,2x, &
+             'freq.param.=',f8.2,2x,'g =',i2)
+99003 format (i5,2x,'clas.rot',2x,'moment   =',f8.2,2x,'symm =',f4.0,2x, &
+             ' dim =',i2,2x,'b =',f8.4,' cm-1')
+99004 format (i5,2x,'hind.rot',2x,'freq(har)=',f8.2,2x,'mom=',f8.3,2x, &
+            'fold=',i2,2x,'symm=',i2,2x,'b=',f8.4,' cm-1',2x, &
+             'uo=',f7.1,' cm-1')
+99005 format (i5,2x,'quan.rot',2x,'moment   =',f8.2,2x,'symm =',f4.0,2x, &
+             ' dim =',i2,2x,'b =',f8.4,' cm-1')
+99006 format (//'rotor symmetry number must be greater than zero')
+99007 format (//'hindered rotor parameters incomplete')
+99008 format (//'degrees of freedom'/)
+99009 format (/'  no.  freq(cm-1)  anh(cm-1)      degeneracy'/)
+99010 format ('       no.     (cm-1)   density   sum')
+99011 format ('       no.     (cm-1)   density     sum')
+99012 format (//'stein-rabinovitch method (grain =',f6.1,' cm-1)'//)
+99013 format (//'whitten-rabinovitch method'//)
+99014 format (i10,1x,f12.3,2(1x,1pe10.3))
+99015 format (i10,1x,f12.3,2(1x,1pe12.5))
+99017 format (a100)
+99018 format (a10)
+99019 format (/'calculating densities')
+99020 format (/'whitten-rabinovitch parameters'/'   vibrations:  ',i10/ &
+              '   rotations:   ',i10,/, '   zero point e:',f10.1,/      &
+              ' geo. mean freq:',f10.3,/'           beta:',f10.3,//)
+     
+99021 format(/,2x,'+----------------------------------------------+', &
+			 /,2x,'|Density of states calculation for state ',a, &
+			 /,2x,'|in the range ', 2(f10.2,2x), &
+			 /,2x,'+----------------------------------------------+')
+99023 format(/,2x,'Total number of states found: ',i7) 
+99024 format(/,2x,'Results written on file: ',a)

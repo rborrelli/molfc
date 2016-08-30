@@ -1,0 +1,1 @@
+/usr/bin/ifort     -ftrapuv -traceback -debug -O0 -g -save-temps -fpic -Wl,-no_pie CMakeFiles/tm2fc.dir/tm2fc.f90.o  -o ../../bin/tm2fc  

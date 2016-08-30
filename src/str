@@ -1,0 +1,70 @@
+active.f90:      is = get_state_from_id(system,char(group%active(i)%state))
+active.f90:      is = get_state_from_id(system,char(group%active(i)%state))
+dos/dos.f90:        istate = get_state_from_id(system, char(dosjob%state))
+dos/dos.f90:        open(unit=fnst,file=char(dosjob%file)//'.dos',status="unknown")
+dos/dos.f90:        open(unit=fivb,file=char(dosjob%file)//'.ivb',status="unknown")
+dos/dos.f90:        write(fout,99021)char(dosjob%state),emin, emax
+dos/dos.f90:        write(fout,99024)char(dosjob%file)
+dos/dos.f90:        istate = get_state_from_id(system, char(dosjob%state))
+dos/dos.f90:        open(unit=fdos,file=char(dosjob%file)//'.dos',status="unknown")
+fc/mtransf.f90:        open(unit=fkm,file=char(trns%modk%file),status="old")
+fc/mtransf.f90:    if (.not.isempty(trns%modk%data)) then        !print *, char(trns%modr%file)
+fc/mtransf.f90:        call build_data_array(char(trns%modk%data),trns%KM)
+fc/mtransf.f90:        open(unit=fjm,file=char(trns%modr%file),status="old")
+fc/mtransf.f90:        call build_data_array(char(trns%modr%data),vec)        
+fc/spectrum.f90:        i2 = i2+ichar('0')
+fc/spectrum.f90:        i3 = i3+ichar('0')
+fc/spectrum.f90:            open(unit=iuspec,file=fcjob%spectrum%file(1:len_trim(fcjob%spectrum%file))//char(i2)//char(i3), &
+fc/spectrum.f90:            open(unit=iuspec,file=fcjob%spectrum%file(1:len_trim(fcjob%spectrum%file))//char(i2)//char(i3), &
+input.f90:                call build_data_array(char(str),system%state(is)%molecule%normodes%vibration(1:nvib)%freq)
+input.f90:                    system%state(is)%molecule%structure%file%name = char(str)
+input.f90:                    system%state(is)%molecule%normodes%file%name = char(str)
+input.f90:                        ieol = ieol + index(extract(str,isol,lenstr),char(10)) ! find first EOL in substr
+input.f90:                if (isempty(char(proc%reorder(i1)%data))) proc%reorder(i)%data = "atoms"
+input.f90:                !if (isempty(char(proc%reorder(i1)%state))) ierr = error(0,"Cannot read state in <reorder>")
+input.f90:                if (isempty(char(proc%reorder(i1)%molecule))) ierr = error(0,"Cannot read molecule <reorder>")
+input.f90:                    !if ((.not.associated(np)) .and. isempty(char(proc%reorder(i1)%state))) then
+input.f90:                else if (associated(np) .and. isempty(char(proc%reorder(i1)%state))) then
+input.f90:                !else if ((.not.associated(np)) .and. (.not.isempty(char(proc%reorder(i1)%state)))) then
+input.f90:            if (isempty(char(proc%frame(i1)%state))) ierr = error(0,"Cannot read state in <frame>")
+input.f90:            if (isempty(char(proc%frame(i1)%molecule))) ierr = error(0,"Cannot read molecule in <frame>")
+input.f90:            select case(char(str))
+input.f90:                    job%method(ie) = char(str)
+input.f90:                    job%method(ie) = char(str)
+input.f90:               	    print *, char(str)//' preliminary implementation'
+input.f90:            	    job%method(ie) = char(str)
+input.f90:    if (isempty(char(dosjob%state))) dosjob%state = system%state(1)%id ! default value: state 1
+input.f90:    if (isempty(char(dosjob%molecule))) dosjob%molecule = "all" ! default value all moecules included
+input.f90:	if (isempty(char(dosjob%file))) dosjob%file = "dos_states.dos"
+input.f90:    if (isempty(char(dosjob%method))) dosjob%method = "brsw" ! default: Beyer-Swinehart algorthm
+input.f90:                if (isempty(char(fc_job%group(ig)%active(i+1)%state))) ierr = error(0,"Cannot read active state id")
+input.f90:                if (isempty(char(fc_job%group(ig)%active(i+1)%molecule))) ierr = error(0,"Cannot read active molecule id")
+input.f90:                is = get_state_from_id(system,char(fc_job%group(ig)%active(i+1)%state))
+iofiles.f90:      newchar=char(i)
+iofiles.f90:      gfile = filenew(1:len_trim(filenew))//'_'//newchar(1:len_trim(newchar))
+output.f90:       write(fout,10) trim(char(fcjob%bra)), trim(char(fcjob%ket))
+output.f90:                write(fout,20) char(fcjob%group(ig)%active(i)%state)
+output.f90:                write(fout,30) char(fcjob%group(ig)%active(i)%molecule)
+output.f90:                    is = get_state_from_id(system,char(fcjob%group(ig)%active(i)%state))
+proc.f90:        is = get_state_from_id(system,char(proc%frame(i)%state))
+proc.f90:        call build_data_array(char(proc%frame(i)%axis),system%state(is)%molecule%orient,jj) 
+proc.f90:		    is = get_state_from_id(system,char(proc%reorder(i)%state))
+proc.f90:                    call build_data_array(char(proc%reorder(i)%ord),system%state(is)%molecule%structure%order(1:nato)) 
+proc.f90:						ilock = get_state_from_id(system,char(proc%reorder(i)%reference))
+proc.f90:                is = get_state_from_id(system,char(proc%reorder(i)%state))
+proc.f90:                call build_data_array(char(proc%reorder(i)%ord),system%state(is)%molecule%normodes%order(1:nvb))
+util.f90:!    iu1 = ichar('a'); iu2 = ichar('z')
+util.f90:!    il1 = ichar('A'); il2 = ichar('Z')
+util.f90:!    isu = ichar(Lchar)
+util.f90:!       Uchar = char(il1+isu)
+util.f90:    iu1 = ichar('a'); iu2 = ichar('z')
+util.f90:    il1 = ichar('A'); il2 = ichar('Z')
+util.f90:    isu = ichar(Lchar(i:i))
+util.f90:    Uchar(i:i) = Lchar(i:i)
+util.f90:       Uchar(i:i) = char(il1+isu)
+util.f90:    iu1 = ichar('a'); iu2 = ichar('z')
+util.f90:    il1 = ichar('A'); il2 = ichar('Z')
+util.f90:    isu = ichar(Uchar)
+util.f90:       Lchar = char(iu1+isu)
+util.f90:    filenew = 'prob_'//char(i1)//char(i2)//char(i3)//'_'//&
+util.f90:    function isempty_char(string)

@@ -1,0 +1,7 @@
+# Hashes of file build rules.
+ec1ba0c6583a31b272fe8eaae7253e38 ../lib/fox-4.1.2/dom/m_dom_dom.F90
+07ae83d50ba1767cbffbce4e575e7121 ../lib/fox-4.1.2/dom/m_dom_extras.F90
+9e4ddce8f55ca2981c804df1cf37b16c ../lib/fox-4.1.2/dom/m_dom_parse.f90
+e3327d41ffc04593a6268225ffde9753 ../lib/fox-4.1.2/dom/m_dom_utils.f90
+2a3e4af555da3e4634ecc5c0fb50632e ../lib/fox-4.1.2/fsys/fox_m_fsys_parse_input.F90
+434461d69f76b46f0d83c5863f0de21b ../lib/fox-4.1.2/wxml/m_wxml_overloads.F90

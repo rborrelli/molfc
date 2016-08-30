@@ -1,0 +1,84 @@
+   1.     H 2  -  C 1   STRE  sc=.9000
+   2.     C 3  =  C 1   STRE  sc=.8600
+   3.     C 4 -.  C 1   STRE  sc=.9110
+   4.     H 5  -  C 4   STRE  sc=.9000
+   5.     C 6  =  C 4   STRE  sc=.8600
+   6.     S 7  -  C 3   STRE  sc=.9000
+   7.     S 7  -  C 6   STRE  sc=.9000
+   8.     C 8  -  C 3   STRE  sc=.9200
+   9.     H 9  -  C 8   STRE  sc=.9000
+  10.     C10  =  C 8   STRE  sc=.8600
+  11.     S11  -  C10   STRE  sc=.9000
+  12.     C12  -  S11   STRE  sc=.9000
+  13.     C13  -  C10   STRE  sc=.9200
+  14.     H14  -  C13   STRE  sc=.9000
+  15.     C15  -  C12   STRE  sc=.9200
+  16.     C15  =  C13   STRE  sc=.8600
+  17.     H16  -  C15   STRE  sc=.9000
+  18.     C17  =  C12   STRE  sc=.8600
+  19.     C18  -  C17   STRE  sc=.9200
+  20.     C19  -  C17   STRE  sc=.9200
+  21.     N20  -  C 6   STRE  sc=.9000
+  22.     N21 =-  C18   STRE  sc=.8500
+  23.     C22  -  N20   STRE  sc=.9000
+  24.     C23  -  N20   STRE  sc=.9000
+  25.     N24 =-  C19   STRE  sc=.8500
+  26.     H25  -  C23   STRE  sc=.9000
+  27.     H26  -  C23   STRE  sc=.9000
+  28.     H27  -  C23   STRE  sc=.9000
+  29.     H28  -  C22   STRE  sc=.9000
+  30.     H29  -  C22   STRE  sc=.9000
+  31.     H30  -  C22   STRE  sc=.9000
+  32.  5-membered ring  BEND  sc=.7850
+  33.  5-membered ring  BEND  sc=.7850
+  34.  5-membered ring  TORS  sc=*****
+  35.  5-membered ring  TORS  sc=*****
+  36.  5-membered ring  BEND  sc=.7850
+  37.  5-membered ring  BEND  sc=.7850
+  38.  5-membered ring  TORS  sc=*****
+  39.  5-membered ring  TORS  sc=*****
+  40. ring sXY C 1- H 2 ROCK  sc=.8000
+  41. ring sXY C 1- H 2 OUT   sc=.7000
+  42. ring tXY C 8- C 3 ROCK  sc=.8000
+  43. ring tXY C 8- C 3 WAGG  sc=.8000
+  44. ring sXY C 4- H 5 ROCK  sc=.8000
+  45. ring sXY C 4- H 5 OUT   sc=.7000
+  46. ring tXY N20- C 6 ROCK  sc=.8000
+  47. ring tXY N20- C 6 WAGG  sc=.8000
+  48. skel, C 3 C10 C 8 BEND  sc=.8000
+  49. secd XY, C 8- H 9 ROCK  sc=.8000
+  50. secd XY, C 8- H 9 OUT   sc=.7000
+  51. ring tXY C 8- C10 ROCK  sc=.8000
+  52. ring tXY C 8- C10 WAGG  sc=.8000
+  53. ring tXY C17- C12 ROCK  sc=.8000
+  54. ring tXY C17- C12 WAGG  sc=.8000
+  55. ring sXY C13- H14 ROCK  sc=.8000
+  56. ring sXY C13- H14 OUT   sc=.7000
+  57. ring sXY C15- H16 ROCK  sc=.8000
+  58. ring sXY C15- H16 OUT   sc=.7000
+  59. t-planXY3umbr C17 SOUT  sc=.8000
+  60. tert XY3 , X= C17 ADEFa sc=.8000
+  61. tert XY3 , X= C17 ADEFb sc=.8000
+  62. pXY,  C17 N21 C18 LIN1  sc=.8000
+  63. pXY,  C17 N21 C18 LIN2  sc=.8000
+  64. pXY,  C17 N24 C19 LIN1  sc=.8000
+  65. pXY,  C17 N24 C19 LIN2  sc=.8000
+  66. t-planXY3umbr N20 SOUT  sc=.8000
+  67. tert XY3 , X= N20 ADEFa sc=.8000
+  68. tert XY3 , X= N20 ADEFb sc=.8000
+  69. prim XY3 , X= C22 SDEF  sc=.8000
+  70. prim XY3 , X= C22 ADEFa sc=.8000
+  71. prim XY3 , X= C22 ADEFb sc=.8000
+  72. prim XY3 , X= C22 ROCKa sc=.8000
+  73. prim XY3 , X= C22 ROCKb sc=.8000
+  74. prim XY3 , X= C23 SDEF  sc=.8000
+  75. prim XY3 , X= C23 ADEFa sc=.8000
+  76. prim XY3 , X= C23 ADEFb sc=.8000
+  77. prim XY3 , X= C23 ROCKa sc=.8000
+  78. prim XY3 , X= C23 ROCKb sc=.8000
+  79. torsion  C 8- C 3 TORS  sc=.8000
+  80. torsion  C10- C 8 TORS  sc=.8000
+  81. torsion  C17- C12 TORS  sc=.8000
+  82. torsion  N20- C 6 TORS  sc=.8000
+  83. torsion  C22- N20 TORS  sc=.8000
+  84. torsion  C23- N20 TORS  sc=.8000

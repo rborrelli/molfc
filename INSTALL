@@ -1,0 +1,36 @@
+                     MOLecular Franck-Condon Factors
+                              Calculation
+
+                         Installation Guide
+     		        University of Torino
+                                Italy
+
+
+Compilation and Installation
+============================
+
+The source code of the program is written in Standard Fortran 90/95 and
+F77 standard for Blas libraries, thus in order to compile the code you need a Fortran 90
+compiler.
+
+The program has been tested on Xeon and pentium 4/3 machines, using Intel Fortran
+Compiler (ifc v. 9.1-15.0).
+
+Open the CMakeLists.txt file using a text editor, 
+change the variable you include_directories() to set your options and then use cmake:  
+
+   o tar xvjf molfc3.tar.bz2 (*)
+
+   o cd molfc3/
+   
+   o cd build/
+
+   o cmake ..
+
+   o make
+
+   o make install
+
+Default settings will place the executable molfc in the directory $HOME/bin.
+
+

@@ -1,0 +1,287 @@
+89  format(2x,'reading Structure for state |',a,'>, molecule <',a,'>   from file ', a)
+88  format(2x,'reading Vibrations for state |',a,'>, molecule <',a,'>   from file ', a)
+10  format (//,2x,'-------------------',/ & 
+              ,2x,'Metric determinant: ',f9.6,/  &
+              ,2x,'-------------------',/)
+12  format(//,22x,'===============================================',& 
+             /22x, 'Job finished on:',2x,I2,1X,A9,1X,I4, &
+                   ' at ',I2,':',I2,':',I2,/, &
+               22x,'===============================================',//)
+101 format (/,'Tridiagonal matrix:',//)
+102	format (2e14.4)
+115	format (/,2x,'Initial state           ;    t = ',f8.2,2x,'fs',/)
+116	format (/,2x,'Propagation step : ',i6,1x,';    t = ',f9.2,2x,'fs',/)
+117     format (5x,'|',1x, i7,1x,'>',12x, 1(f8.5,8x))
+118     format (2x,i5,6x,'|', 4i2,';', i5, '>',8x, f10.2)
+119	format (/,3x,'index',11x,'state',16x,'energy',/)
+120	format (/,2x,'Selected states: ',20(2x,'|',i5,'>'),/)
+1252 	format (/,17x,'+---------------------------------------+',/,&
+                  17x,'|  Franck-Condon Integrals calculation  |',/,&
+                  17x,'+---------------------------------------+',//)
+127	format (/,2x,'< Selected Ranges >')
+128   	format(//,2x,'------------------------',/,&
+     2x,'FC calculation CPU time:',f10.5,/, &
+     2x,'------------------------',/)
+191	format(//,2x,'--------------------------',/,2x,  &
+     'Results of the calculation',/,2x,  &  
+     '--------------------------',//)
+1002    format(2x,'==============================================&
+&========================')
+1003    format(2x,3f12.4)
+1006    format(/,2x,'=============',/,&
+2x,'States search:',/,&
+2x,'=============',/)
+1008	format (2x,'|',i4,'>',2f10.3,/)
+30    	format (//,2x,'============================================',/, &
+      2x,'Equilibrium geometry and masses of state',i3,/,&
+     2x,'============================================', &
+               //,2x,'atom',5x,'mass',9x,'x',14x,'y',14x,'z',/)
+40    	format(2x,a1,5x,f9.4,3(f12.5,2x))
+90    	format(//,10x,'Equilibrium geometry in cartesian coordinates for') 
+91    	format(10x,'the two electronic states and their difference r',/)
+110   	format(2x,i3,2x,e15.7,4x,e15.7,4x,e15.7)
+140   	format(//,2x,'+--------------------------------------------------------------+',/&
+     2x,'|  Frequencies of the vibrations of the two electronic states  |',/& 
+     2x,'|  their difference and normal coordinates shift K:            |',/&
+     2x,'|                                                              |',/&
+     2x,'|    Q1 = L1(tr)*(x-x01); Q2=L2(tr)*(x-x02)                    |',/&
+     2x,'|    Q1 = J Q2 + K;  J = L1(tr)*L2; K = L1(tr)*(x02-x01)       |',/&
+     2x,'+--------------------------------------------------------------+',/)
+157   	format(2x,i3,2x,a,3x,4(i2,1x))
+159   	format(//,2x,'+----------------------+',/,&
+                  2x,'| Internal coordinates |',/,&
+2x,'+----------------------+',/)
+160   	format(2x,i3,2x,4(f10.3,3x),4x,'-->',i3,2x,f10.3)
+1601   	format(2x,i3,2x,5(f10.3,3x),4x,'-->',i3,2x,f10.3)
+161   	format(2x,i3,2x,2(f10.2,4x),4(f10.3,3x),20x,10(f5.2,x,'Q2(',i3,')'))
+1611   	format(2x,i3,2x,5(f10.3,3x),20x,10(f5.2,x,'Q2(',i3,')'))
+162	format(2x,i3,2x,2(f10.3,3x))
+163     format(//,2x,'-------------------',/, & 
+                  2x,'Reduced Frequencies',/, & 
+                  2x,'-------------------')
+164   	format(//,2x,'--------------------------------',/&
+                 ,2x,'Zero point energy and DE in cm-1',/&
+                 ,2x,'--------------------------------',//&
+                 ,2x,'E01= ',f12.2,4x,'E02= ',f12.2,4x,'DE= ',f12.2,4x,'DE00= ',f12.2)
+170   	format(//,10x,'Normal modes in cartesian ',&
+           'coordinates for state2')
+171   	format(//,10x,'Normal modes in mass-weighted cartesian ',&
+           'coordinates for state2')
+1123  	format(//,10x,'Order number of actives modes,frequencies of')  
+1124  	format(9x,'coupling gaussian,eq. displacement rel. to  state 2') 
+810   	format(2x,i3,4x,e15.7,4x,e15.7)
+1125  	format(//,'Coupling factor',4x,e15.7) 
+241   	format(//,2x,'=============================',/&
+     2x,'Normal coordinates shift K:',/&
+     2x,'Q1 = J Q2 + K;  J = L1^(-1)*L2',/&
+      2x,'=============================',//)
+297	format(/,2x,'Starting Franck-Condon integrals calculation...')
+298	format(2x,'...done')
+2980	format(//, &
+               2x,'+------------------------------',/, &
+               2x,'| N. of calculated FC integrals: ', i8,/, &
+               2x,'+------------------------------',/)
+2991	format(/,2x,'+-----------+',/&
+	,2x,'| I/O Files |',/&
+,2x,'+-----------+',/)
+299	format(/,2x,'+-------------------------+',/&
+,2x,'| Franck-Condon integrals |',/&
+,2x,'+-------------------------+',//)
+199	format(/,2x,'+-------------------------------------------------+',/&
+,2x,'| Franck-Condon integrals for molecule ',a,/&
+,2x,'+-------------------------------------------------+',//)
+300	format(/,2x,'Franck-Condon factors sum:',f14.6,/)
+301	format(/,2x,'Franck-Condon factors sum - |<0|0>|^2:',f14.6,/)
+308     format(//,2x,'======================================',/ &
+                  2x,'Orientation after Reordering Procedure',/ & 
+2x,'======================================',/)
+310     format(2x,a5,2x,3(i3,3x,a5))
+311     format(2x,a5,2x,3(i3,3x,f8.4))
+!2412  	format(2x,'Mode',4x,'freq. |1>', 4x,&
+!             'freq. |2>',3x,'shift (K)',3x,'shift (J(tr)*K)',17x,'Delta(freq)',7x,'Mixed'/)
+2412  	format(2x,'Mode',4x,'freq. |1>', 4x,&
+             'freq. |2>',3x,'K (adim)',3x,'J(tr)*K (adim)'/)
+2413  	format(2x,'Mode',4x,'freq. |1>', 4x,&
+             'freq. |2>',3x,'K (adim)',3x,'J(tr)*K (adim)',3x,'K (Ang*amu^1/2)',3x,'J(tr)*K (Ang*amu^1/2)'/)
+6759  	format(2x,i3,8x,f10.3,4x,f10.3,6x,f10.3,4x,f10.3)
+261   	format(///,4x,'+----------------------------------------------------+',/&
+              ,4x,'|  Transformation matrix J from the normal modes of  |',/&
+     ,4x,'|  state 2 (Q2) to those of the state 1 (Q1)         |',/&
+     ,4x,'|                                                    |',/&
+     ,4x,'|        Q1 = J * Q2 + K       (J = L1^(tr)L2)       |',/&
+     ,4x,'+----------------------------------------------------+',/)
+4000  	format (' kgk',f10.7)
+395   	format (//,5x,'Franck-Condon integral between the ground', &
+     'states:', e15.7,/)
+1976  	format (//,2x,'First electronic state:',/,&
+             2x,'ex. mode',10x,'quantum number',/)
+1970  	format (3x,i2,20x,i3)
+1977  	format (//,2x,'Second electronic state:',/,&
+             2x,'ex. mode',10x,'quantum number',/)
+1978  	format (//,2x,'Total Franck-Condon factors: ',i8)
+4100  	format (' ypy',f10.7)
+666 	format (//,2x,'Number of Franck-Condon factors to be calculated:',i10)
+6661    format (/,2x,'Vibrational states in | ', a,' >: ', i10)
+6662    format (/,2x,'Vibrational states in | ', a,' >: ', i10)
+6663     format (/,2x,'Total vibrational states : ', i10)
+1456    format (/,2x,'Fast algorithm selected.',/&
+                 ,2x,'This requiers a lot of memory.',/)
+1457    format (/,2x,'==================',/&
+                 ,2x,'Hamiltonian matrix',/&
+                 ,2x,'=================='/)
+1458    format (//,2x,'===========================',/&
+                  ,2x,'Eigenstates and Eigenvalues',/&
+                  ,2x,'==========================='/)
+1459    format (2x,'Lanczos Iteration ',i3)
+665     format (/,2x,'===============================',/,&
+                  2x,'Axis switching not peformed.  ',/,&
+                  2x,'Orientation after Rot0 and Rot1',/,&
+                  2x,'and the symmetry module.      ',/,&
+                  2x,'===============================',/)
+668     format (/,2x,'==============================',/,&
+                  2x,'Axis switching not peformed   ',/,&
+                  2x,'                              ',/,&
+                  2x,'Geometries after ROT0 and ROT1',/,&
+                  2x,'==============================',/)
+669     format (/,2x,'=========================',/,&
+                  2x,'Spectrum written on file:',a30,/,&
+                  2x,'=========================',/)
+670     format (/,2x,'=========================================',/,&
+                  2x,'Autocorrelation Function written on file:',a30,/,&
+                  2x,'=========================================',/)
+9980    format(/,2x,'Initial Energy:',2X,f10.2,3x,'Energy Range:',2x,f8.2,/)
+9981    format(/,2x,'Initial Energy:',2X,f10.2,3x,'Energy/Cpl Range:',2x,f12.6,/)
+9982    format(/,2x,'Maximum DE:',2X,f10.2,3x,'Max Coupling:',2x,f12.6,/)
+9983    format(/,2x,'States within DE:',2X,i6,3x,'States within DE and RATIO:',2x,i6,/)
+9984    format(/,2x,'Index of State with maximum coupling:',2x,i6,/)
+9988    format(/,2x,'Total number of states found:',2X,6i,/)
+9900    format(/,2x,i6,2x,'State Selected out of ',2X,6i,/)
+
+305     format(//,2x,'=========================================',/ &
+                  2x,'Standard Orientation after Axis-Switching',/ & 
+2x,'=========================================',/)
+306     format(//,2x,'------------------------------------',/ &
+                  2x,'Important: Axis-Switching performed.',/, & 
+2x,'Molecules have been reoriented',/, &
+2x,'to satifsfy Eckart conditions.' ,/, & 
+2x,'------------------------------------')
+823     format(/,2x,'----------',/ &
+                 2x,'MOLECULE :', a,/ &
+                 2x,'----------',/ &
+                 2x,'Initial Value of Zero order Eckart Condition: ',e12.5)
+825     format(//,2x,'---------------------',/,&
+                  2x,'Axis-switching matrix', i3,/,&
+                  2x,'---------------------',/)
+820     format(//,2x,'--------------',/,&
+                  2x,'Inertia tensor of molecule: ',a,/,&
+                  2x,'--------------',/)
+831     format(//,2x,'---------------------------------------------------',/,&
+                  2x,'Matrix C(k,l) = sum_{i,j} wm(i)*xi1_{i,k}*xi2_{i,l}',/,&
+                  2x,'---------------------------------------------------',/)
+832     format(//,2x,'===================================================',/,&
+                  2X,'                                                   ',/,&
+                  2x,'  WARNING MEGGASE FROM AXIS-SWITCHING ROUTINE      ',/,&
+                  2X,'                                                   ',/,&
+                  2x,'The axis-switching routine has not found any proper',/,&
+                  2x,'orientation of the structures that fulfills the    ',/,&
+                  2x,'zero order Eckart condition.                       ',/,&
+                  2x,'Check the geometries before proceding.             ',/,&
+                  2x,'===================================================',/)
+
+154 format (/,2x,'---------------------------------------',/, & 
+              2x,'Reorder of molecule ',i3,' in state 2'/, &
+              2x,'---------------------------------------' ,/)
+155 format (2x,i3,x'-->',x,i3)      
+
+567 format (2x,'State ', a,//, &
+            2x,'--------------------------',/,&
+            2x,'Number of selected states:',i6,/,&
+2x,'--------------------------',/)
+344 format (/,2x,'----------------------',/, &
+              2x,'Multiple  Propagations'/, &
+              2x,'----------------------',/)
+349 format (/, 2x,'States to be propagated',/)
+345 format (/,2x,'----------------------',/, &
+              2x,'Number of Propagations',1x,i4/, &
+              2x,'----------------------',/)
+346 format (/,2x,'-------------',/, &
+              2x,'Energy Range:',2x,f8.3,/, &
+              2x,'-------------' ,/)
+347 format (/,2x,'-------------',/, &
+              2x,'Init. Energy:',2x,f8.3,/, &
+              2x,'-------------' ,/)
+3471 format(/,2x,'+------------------+',/,&
+              2x,'| Pruning criteria |',/,&
+2x,'+------------------+',//,&
+              2x,'|V/DE|:',2x,e12.1,/)
+348 format (/,2x,'--------------------------------',/&
+              2x,'Start pruning Hamiltonian matrix',/,&
+              2x,'--------------------------------',/)
+350 format (/,2x,'------------------------------',/&
+              2x,'End pruning Hamiltonian matrix',/&
+              2x,'------------------------------',/)
+351 format (/2x,'+-----------------------------------+',/&
+             2x,'|   Hamiltonian Matrix Calculation  |',/&
+             2x,'+-----------------------------------+',/)
+400 format (/,2x,'Calculating maximum and minimum eigenvalues of the Hamiltonian Matrix.')
+401 format (/,2x,'Maximum Hamiltonian eigenvalue:',2x,f10.3)
+402 format (/,2x,'Minimum Hamiltonian eigenvalue:',2x,f10.3)
+403 format (/,2x,'Scaling Hamiltonian Matrix as:',&
+            //,2x,'H = (H - beta*I) /alpha    ')
+404 format (/,2x,'Degree of Chebyshev expansion:', i4)
+409 format (/,2x,'Chebyshev expansion coefficients:'/)
+410 format (2x,'c(',i3,')',2(e18.6,2x))
+411 format (/,2x,'+----------------------------------+',/, &
+              2x,'| Initialize Chebyshev Propagation |',/, &
+              2x,'+----------------------------------+',/)
+412 format (/2x,'Bessel functions are calculated in the point gamma:',2x,f8.4)
+413 format (/,2x,'beta  = ',x,f10.2)
+414 format (/,2x,'alpha = ',x,f10.2)
+415 format (/,2x,'Hamiltonian properly scaled. Eigenvalues within: ( ',f8.4,',',f8.4,')')
+2111 format(/,2x,'+------------------------------+',&
+            /,2x,'|   Reorganization Energies    |',&
+/,2x,'+------------------------------+',/)
+2110 format(/,2x,'+------------------------------+',&
+            /,2x,'|   Reorganization Energies    |',&
+/,2x,'|   excited modes only.        |',&
+/,2x,'+------------------------------+',/)
+2112 format(/,2x,'-----------------------------------',& 
+            /,2x,'Reorganization Energy for molecule:',1x,a,&
+            /,2x,'-----------------------------------',&
+/,2x,'Lambda ',f10.3/)
+2113 format(/,2x,'---------------------------',&
+            /,2x,'Total Reorganization Energy',&
+            /,2x,'---------------------------',&
+/,2x,'Lambda ',f10.3/)
+2401 format(/,2x,'---------',/&
+,2x,'Molecule:',x,a,/&
+,2x,'---------',/)
+2402 format(/,2x,'----------------------------', /,& 
+              2x,'Total number of basis states',i9,/,&
+              2x,'----------------------------',/)
+800  format(/,2x,'--------------------------------',/,&
+              2x,'Checked orientation of molecules',/,&
+2x,'--------------------------------')
+802  format(/,2x,'Input orientation left as is.')
+801  format(2x,'Changed sign of axis ', a2, ' in molecule  ', i3,' (state ', i3,')')
+1011 format(a1,4i3,f10.3,a4)
+2000 format(//' Internal coordinates R'/)
+2001 format(1x,i2,5x,a4,5x,4i3,5x,3(a2,1x))
+2004 format(//,2x,' B matrix (transformation from cartesians to internals', &
+      ' :  r  =  R * x  )')
+2007 format(//' program fails for last ',a4,' coordinate specified')
+2100 format(1x,i3,2x,a1,i2,2x,'stretch',2x,a2,i2,' - ',a2, &
+      i2,39x,f6.3)
+2200 format(1x,i3,2x,a1,i2,2x,'bend',5x,a2,i2,' - ',a2,i2, &
+      ' - ',a2,i2,32x,f6.3)
+2300 format(1x,i3,2x,a1,i2,2x,'wag',6x,a2,i2,' - ',a2,i2,2x,&
+      'out of plane',2x,a2,i2,' - ',a2,i2,' - ',a2,i2,5x,f6.3)
+2400 format(1x,i3,2x,a1,i2,2x,'linear bend ',a2,i2,' - ',&
+      a2,i2,' - ',a2,i2,' in plane of ',a2,i2,12x,f6.3)
+2411 format(1x,i3,2x,a1,i2,2x,'linear bend ',a2,i2,' - ',a2, &
+      i2,' - ',a2,i2,' in perp. plane',14x,f6.3)
+2500 format(1x,i3,2x,a1,i2,2x,'torsion',2x,a2,i2,' - ',a2, &
+      i2,39x,f6.3)
+2600 format(1x,i3,2x,a1,i2,2x,'dihedral',1x,a2,i2,' - ',a2,i2, &
+      ' - ',a2,i2,' - ',a2,i2,25x,f6.3)
+

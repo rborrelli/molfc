@@ -1,0 +1,12 @@
+add_library(colib
+colib1.f  
+colib2.f  
+colib3.f  
+colib4.f  
+colib5.f  
+colib6.f  
+colib7.f  
+colib8.f  
+colib9.f
+colib10.f 
+)

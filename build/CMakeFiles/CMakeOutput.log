@@ -1,0 +1,368 @@
+The system is: Darwin - 13.4.0 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is AppleClang, found in "/Users/lello/Workspace/molfc3/build/CMakeFiles/3.0.0/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is AppleClang, found in "/Users/lello/Workspace/molfc3/build/CMakeFiles/3.0.0/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec35567936/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec35567936.dir/build.make CMakeFiles/cmTryCompileExec35567936.dir/build
+gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec35567936.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec35567936.dir/testCCompiler.c.o   -c /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec35567936
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec35567936.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec35567936.dir/testCCompiler.c.o  -o cmTryCompileExec35567936  
+gmake[1]: Leaving directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec563230557/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec563230557.dir/build.make CMakeFiles/cmTryCompileExec563230557.dir/build
+gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o   -c /Applications/CMake.app/Contents/share/cmake-3.0/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec563230557
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec563230557.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec563230557   
+Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
+Target: x86_64-apple-darwin13.4.0
+Thread model: posix
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec563230557 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/mkl/lib -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-241.9
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7m armv7em
+Library search paths:
+	/opt/intel/composer_xe_2015.2.132/compiler/lib
+	/opt/intel/composer_xe_2015.2.132/compiler/lib
+	/opt/intel/composer_xe_2015.2.132/mkl/lib
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+gmake[1]: Leaving directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec563230557/fast"]
+  ignore line: [/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec563230557.dir/build.make CMakeFiles/cmTryCompileExec563230557.dir/build]
+  ignore line: [gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp']
+  ignore line: [/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o   -c /Applications/CMake.app/Contents/share/cmake-3.0/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec563230557]
+  ignore line: [/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec563230557.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc    -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec563230557   ]
+  ignore line: [Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)]
+  ignore line: [Target: x86_64-apple-darwin13.4.0]
+  ignore line: [Thread model: posix]
+  link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec563230557 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/mkl/lib -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.9.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec563230557] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec563230557.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-L/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+    arg [-L/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+    arg [-L/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+    arg [-lSystem] ==> lib [System]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/mkl/lib;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  collapse lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: [/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/mkl/lib;/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec2255573530/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec2255573530.dir/build.make CMakeFiles/cmTryCompileExec2255573530.dir/build
+gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2255573530.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2255573530.dir/testCXXCompiler.cxx.o -c /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec2255573530
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2255573530.dir/link.txt --verbose=1
+/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec2255573530.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec2255573530  
+gmake[1]: Leaving directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec2486799990/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec2486799990.dir/build.make CMakeFiles/cmTryCompileExec2486799990.dir/build
+gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CMake.app/Contents/share/cmake-3.0/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec2486799990
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2486799990.dir/link.txt --verbose=1
+/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2486799990   
+Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
+Target: x86_64-apple-darwin13.4.0
+Thread model: posix
+ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec2486799990 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/mkl/lib -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-241.9
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7m armv7em
+Library search paths:
+	/opt/intel/composer_xe_2015.2.132/compiler/lib
+	/opt/intel/composer_xe_2015.2.132/compiler/lib
+	/opt/intel/composer_xe_2015.2.132/mkl/lib
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+gmake[1]: Leaving directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec2486799990/fast"]
+  ignore line: [/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec2486799990.dir/build.make CMakeFiles/cmTryCompileExec2486799990.dir/build]
+  ignore line: [gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp']
+  ignore line: [/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o -c /Applications/CMake.app/Contents/share/cmake-3.0/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec2486799990]
+  ignore line: [/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2486799990.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++     -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v -Wl,-v CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2486799990   ]
+  ignore line: [Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)]
+  ignore line: [Target: x86_64-apple-darwin13.4.0]
+  ignore line: [Thread model: posix]
+  link line: [ "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld" -demangle -dynamic -arch x86_64 -macosx_version_min 10.9.0 -o cmTryCompileExec2486799990 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/mkl/lib -lc++ -lSystem /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.9.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2486799990] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec2486799990.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-L/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+    arg [-L/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+    arg [-L/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+    arg [-lc++] ==> lib [c++]
+    arg [-lSystem] ==> lib [System]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/mkl/lib;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  collapse lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [c++;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: [/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/mkl/lib;/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" succeeded.
+Compiler: /usr/bin/ifort 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the Fortran compiler identification source "CMakeFortranCompilerId.F" produced "a.out"
+
+The Fortran compiler identification is Intel, found in "/Users/lello/Workspace/molfc3/build/CMakeFiles/3.0.0/CompilerIdFortran/a.out"
+
+Determining if the Fortran compiler works passed with the following output:
+Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec167638488/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec167638488.dir/build.make CMakeFiles/cmTryCompileExec167638488.dir/build
+gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building Fortran object CMakeFiles/cmTryCompileExec167638488.dir/testFortranCompiler.f.o
+/usr/bin/ifort    -c /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/testFortranCompiler.f -o CMakeFiles/cmTryCompileExec167638488.dir/testFortranCompiler.f.o
+Linking Fortran executable cmTryCompileExec167638488
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec167638488.dir/link.txt --verbose=1
+/usr/bin/ifort       CMakeFiles/cmTryCompileExec167638488.dir/testFortranCompiler.f.o  -o cmTryCompileExec167638488  
+gmake[1]: Leaving directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+
+
+Detecting Fortran compiler ABI info compiled with the following output:
+Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec582317929/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec582317929.dir/build.make CMakeFiles/cmTryCompileExec582317929.dir/build
+gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building Fortran object CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o
+/usr/bin/ifort    -c /Applications/CMake.app/Contents/share/cmake-3.0/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o
+Linking Fortran executable cmTryCompileExec582317929
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec582317929.dir/link.txt --verbose=1
+/usr/bin/ifort   -v -Wl,-v   CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o  -o cmTryCompileExec582317929   
+ifort version 15.0.2
+/usr/bin/ifort-15.0-base/bin/intel64/fortcom    -mP1OPT_version=15.0-intel64 -mGLOB_diag_file=CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.diag -mGLOB_diag_use_message_catalog=FALSE -mGLOB_source_language=GLOB_SOURCE_LANGUAGE_F90 -mP2OPT_static_promotion -mP1OPT_print_version=FALSE -mCG_use_gas_got_workaround=F -mP2OPT_align_option_used=TRUE -mGLOB_gcc_version=490 "-mGLOB_options_string=-v -Wl,-v -o cmTryCompileExec582317929" -mGLOB_position_independent_code -mGLOB_preemption_model=1 -mGLOB_no_compact_unwind=TRUE -mGLOB_cxx_limited_range=FALSE -mCG_extend_parms=FALSE -mGLOB_compiler_bin_directory=/usr/bin/ifort-15.0-base/bin/intel64 -mGLOB_as_output_backup_file_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortXxHpjFas_.s -mIPOPT_activate -mGLOB_em64t -mGLOB_product_id_code=0x22006d8f -mP3OPT_use_mspp_call_convention -mP2OPT_subs_out_of_bound=FALSE -mGLOB_ansi_alias -mPGOPTI_value_profile_use=T -mGLOB_opt_report_use_source_name -mP2OPT_il0_array_sections=TRUE -mP2OPT_hlo -mP2OPT_hpo_rtt_control=0 -mIPOPT_args_in_regs=0 -mP2OPT_disam_assume_nonstd_intent_in=FALSE -mGLOB_imf_mapping_library=/usr/bin/ifort-15.0-base/bin/intel64/libiml_attr.dylib -mPGOPTI_gen_threadsafe_level=0 -mIPOPT_link -mIPOPT_ipo_activate -mIPOPT_mo_activate -mIPOPT_source_files_list=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortslisNNKCMS -mIPOPT_mo_global_data "-mIPOPT_cmdline_link="-dynamic" "-arch" "x86_64" "-weak_reference_mismatches" "non-weak" "-macosx_version_min" "10.9.5" "-no_compact_unwind" "-o" "cmTryCompileExec582317929" "/usr/bin/ifort-15.0-base/compiler/lib/for_main.o" "-L/opt/intel/composer_xe_2015.2.132/compiler/lib" "-L/opt/intel/composer_xe_2015.2.132/compiler/lib" "-L/opt/intel/composer_xe_2015.2.132/mkl/lib" "-L/usr/bin/ifort-15.0-base/compiler/lib" "-L/usr/lib" "-v" "CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o" "/usr/bin/ifort-15.0-base/compiler/lib/libifport.a" "/usr/bin/ifort-15.0-base/compiler/lib/libifcore.a" "/usr/bin/ifort-15.0-base/compiler/lib/libimf.a" "/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a" "/usr/bin/ifort-15.0-base/compiler/lib/libipgo.a" "-lSystem" "/usr/bin/ifort-15.0-base/compiler/lib/libirc.a" "-lpthread" "/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a" "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a"" -mIPOPT_il_in_obj -mIPOPT_ipo_activate_warn=FALSE -mIPOPT_obj_output_file_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ipo_ifortlvtJjH.o -mIPOPT_whole_archive_fixup_file_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortwarchjHpnDa -mGLOB_long_size_64 -mGLOB_routine_pointer_size_64 -mGLOB_driver_tempfile_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/iforttempfileksBEjJ -mGLOB_os_target=GLOB_OS_TARGET_MACH -mGLOB_async_unwind_tables=TRUE -mGLOB_obj_output_file=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ipo_ifortlvtJjH.o -mGLOB_source_dialect=GLOB_SOURCE_DIALECT_NONE -mP1OPT_source_file_name=ipo_out.f -mP2OPT_symtab_type_copy=true CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o -mIPOPT_object_files=T -mIPOPT_assembly_files=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortalis3N5elM -mIPOPT_generated_tempfiles=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortelisHbSCpi -mIPOPT_embedded_object_base_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/iforteobjJXWtE0
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld    -dynamic -arch x86_64 -weak_reference_mismatches non-weak -macosx_version_min 10.9.5 -no_compact_unwind -o cmTryCompileExec582317929 /usr/bin/ifort-15.0-base/compiler/lib/for_main.o -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/mkl/lib -L/usr/bin/ifort-15.0-base/compiler/lib -L/usr/lib CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o -v /usr/bin/ifort-15.0-base/compiler/lib/libifport.a /usr/bin/ifort-15.0-base/compiler/lib/libifcore.a /usr/bin/ifort-15.0-base/compiler/lib/libimf.a /usr/bin/ifort-15.0-base/compiler/lib/libsvml.a /usr/bin/ifort-15.0-base/compiler/lib/libipgo.a -lSystem /usr/bin/ifort-15.0-base/compiler/lib/libirc.a -lpthread /usr/bin/ifort-15.0-base/compiler/lib/libsvml.a /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-241.9
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7m armv7em
+Library search paths:
+	/opt/intel/composer_xe_2015.2.132/compiler/lib
+	/opt/intel/composer_xe_2015.2.132/compiler/lib
+	/opt/intel/composer_xe_2015.2.132/mkl/lib
+	/usr/bin/ifort-15.0-base/compiler/lib
+	/usr/lib
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
+gmake[1]: Leaving directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+
+
+Parsed Fortran implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec582317929/fast"]
+  ignore line: [/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec582317929.dir/build.make CMakeFiles/cmTryCompileExec582317929.dir/build]
+  ignore line: [gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp']
+  ignore line: [/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building Fortran object CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o]
+  ignore line: [/usr/bin/ifort    -c /Applications/CMake.app/Contents/share/cmake-3.0/Modules/CMakeFortranCompilerABI.F -o CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o]
+  ignore line: [Linking Fortran executable cmTryCompileExec582317929]
+  ignore line: [/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec582317929.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/ifort   -v -Wl,-v   CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o  -o cmTryCompileExec582317929   ]
+  ignore line: [ifort version 15.0.2]
+  ignore line: [/usr/bin/ifort-15.0-base/bin/intel64/fortcom    -mP1OPT_version=15.0-intel64 -mGLOB_diag_file=CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.diag -mGLOB_diag_use_message_catalog=FALSE -mGLOB_source_language=GLOB_SOURCE_LANGUAGE_F90 -mP2OPT_static_promotion -mP1OPT_print_version=FALSE -mCG_use_gas_got_workaround=F -mP2OPT_align_option_used=TRUE -mGLOB_gcc_version=490 "-mGLOB_options_string=-v -Wl,-v -o cmTryCompileExec582317929" -mGLOB_position_independent_code -mGLOB_preemption_model=1 -mGLOB_no_compact_unwind=TRUE -mGLOB_cxx_limited_range=FALSE -mCG_extend_parms=FALSE -mGLOB_compiler_bin_directory=/usr/bin/ifort-15.0-base/bin/intel64 -mGLOB_as_output_backup_file_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortXxHpjFas_.s -mIPOPT_activate -mGLOB_em64t -mGLOB_product_id_code=0x22006d8f -mP3OPT_use_mspp_call_convention -mP2OPT_subs_out_of_bound=FALSE -mGLOB_ansi_alias -mPGOPTI_value_profile_use=T -mGLOB_opt_report_use_source_name -mP2OPT_il0_array_sections=TRUE -mP2OPT_hlo -mP2OPT_hpo_rtt_control=0 -mIPOPT_args_in_regs=0 -mP2OPT_disam_assume_nonstd_intent_in=FALSE -mGLOB_imf_mapping_library=/usr/bin/ifort-15.0-base/bin/intel64/libiml_attr.dylib -mPGOPTI_gen_threadsafe_level=0 -mIPOPT_link -mIPOPT_ipo_activate -mIPOPT_mo_activate -mIPOPT_source_files_list=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortslisNNKCMS -mIPOPT_mo_global_data "-mIPOPT_cmdline_link="-dynamic" "-arch" "x86_64" "-weak_reference_mismatches" "non-weak" "-macosx_version_min" "10.9.5" "-no_compact_unwind" "-o" "cmTryCompileExec582317929" "/usr/bin/ifort-15.0-base/compiler/lib/for_main.o" "-L/opt/intel/composer_xe_2015.2.132/compiler/lib" "-L/opt/intel/composer_xe_2015.2.132/compiler/lib" "-L/opt/intel/composer_xe_2015.2.132/mkl/lib" "-L/usr/bin/ifort-15.0-base/compiler/lib" "-L/usr/lib" "-v" "CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o" "/usr/bin/ifort-15.0-base/compiler/lib/libifport.a" "/usr/bin/ifort-15.0-base/compiler/lib/libifcore.a" "/usr/bin/ifort-15.0-base/compiler/lib/libimf.a" "/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a" "/usr/bin/ifort-15.0-base/compiler/lib/libipgo.a" "-lSystem" "/usr/bin/ifort-15.0-base/compiler/lib/libirc.a" "-lpthread" "/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a" "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a"" -mIPOPT_il_in_obj -mIPOPT_ipo_activate_warn=FALSE -mIPOPT_obj_output_file_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ipo_ifortlvtJjH.o -mIPOPT_whole_archive_fixup_file_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortwarchjHpnDa -mGLOB_long_size_64 -mGLOB_routine_pointer_size_64 -mGLOB_driver_tempfile_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/iforttempfileksBEjJ -mGLOB_os_target=GLOB_OS_TARGET_MACH -mGLOB_async_unwind_tables=TRUE -mGLOB_obj_output_file=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ipo_ifortlvtJjH.o -mGLOB_source_dialect=GLOB_SOURCE_DIALECT_NONE -mP1OPT_source_file_name=ipo_out.f -mP2OPT_symtab_type_copy=true CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o -mIPOPT_object_files=T -mIPOPT_assembly_files=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortalis3N5elM -mIPOPT_generated_tempfiles=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/ifortelisHbSCpi -mIPOPT_embedded_object_base_name=/var/folders/wk/vm6vh5_96yj4c0lqd06q_vwr0000gn/T/iforteobjJXWtE0]
+  link line: [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld    -dynamic -arch x86_64 -weak_reference_mismatches non-weak -macosx_version_min 10.9.5 -no_compact_unwind -o cmTryCompileExec582317929 /usr/bin/ifort-15.0-base/compiler/lib/for_main.o -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/compiler/lib -L/opt/intel/composer_xe_2015.2.132/mkl/lib -L/usr/bin/ifort-15.0-base/compiler/lib -L/usr/lib CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o -v /usr/bin/ifort-15.0-base/compiler/lib/libifport.a /usr/bin/ifort-15.0-base/compiler/lib/libifcore.a /usr/bin/ifort-15.0-base/compiler/lib/libimf.a /usr/bin/ifort-15.0-base/compiler/lib/libsvml.a /usr/bin/ifort-15.0-base/compiler/lib/libipgo.a -lSystem /usr/bin/ifort-15.0-base/compiler/lib/libirc.a -lpthread /usr/bin/ifort-15.0-base/compiler/lib/libsvml.a /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld] ==> ignore
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-weak_reference_mismatches] ==> ignore
+    arg [non-weak] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.9.5] ==> ignore
+    arg [-no_compact_unwind] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec582317929] ==> ignore
+    arg [/usr/bin/ifort-15.0-base/compiler/lib/for_main.o] ==> ignore
+    arg [-L/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+    arg [-L/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+    arg [-L/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> dir [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+    arg [-L/usr/bin/ifort-15.0-base/compiler/lib] ==> dir [/usr/bin/ifort-15.0-base/compiler/lib]
+    arg [-L/usr/lib] ==> dir [/usr/lib]
+    arg [CMakeFiles/cmTryCompileExec582317929.dir/CMakeFortranCompilerABI.F.o] ==> ignore
+    arg [-v] ==> ignore
+    arg [/usr/bin/ifort-15.0-base/compiler/lib/libifport.a] ==> lib [/usr/bin/ifort-15.0-base/compiler/lib/libifport.a]
+    arg [/usr/bin/ifort-15.0-base/compiler/lib/libifcore.a] ==> lib [/usr/bin/ifort-15.0-base/compiler/lib/libifcore.a]
+    arg [/usr/bin/ifort-15.0-base/compiler/lib/libimf.a] ==> lib [/usr/bin/ifort-15.0-base/compiler/lib/libimf.a]
+    arg [/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a] ==> lib [/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a]
+    arg [/usr/bin/ifort-15.0-base/compiler/lib/libipgo.a] ==> lib [/usr/bin/ifort-15.0-base/compiler/lib/libipgo.a]
+    arg [-lSystem] ==> lib [System]
+    arg [/usr/bin/ifort-15.0-base/compiler/lib/libirc.a] ==> lib [/usr/bin/ifort-15.0-base/compiler/lib/libirc.a]
+    arg [-lpthread] ==> lib [pthread]
+    arg [/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a] ==> lib [/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a]
+    arg [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/mkl/lib;/usr/bin/ifort-15.0-base/compiler/lib;/usr/lib;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  collapse lib [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/lib/darwin/libclang_rt.osx.a] ==> [/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+  collapse library dir [/usr/bin/ifort-15.0-base/compiler/lib] ==> [/usr/bin/ifort-15.0-base/compiler/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/compiler/lib] ==> [/opt/intel/composer_xe_2015.2.132/compiler/lib]
+  collapse library dir [/opt/intel/composer_xe_2015.2.132/mkl/lib] ==> [/opt/intel/composer_xe_2015.2.132/mkl/lib]
+  collapse library dir [/usr/bin/ifort-15.0-base/compiler/lib] ==> [/usr/bin/ifort-15.0-base/compiler/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [/usr/bin/ifort-15.0-base/compiler/lib/libifport.a;/usr/bin/ifort-15.0-base/compiler/lib/libifcore.a;/usr/bin/ifort-15.0-base/compiler/lib/libimf.a;/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a;/usr/bin/ifort-15.0-base/compiler/lib/libipgo.a;/usr/bin/ifort-15.0-base/compiler/lib/libirc.a;pthread;/usr/bin/ifort-15.0-base/compiler/lib/libsvml.a;/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/6.0/lib/darwin/libclang_rt.osx.a]
+  implicit dirs: [/opt/intel/composer_xe_2015.2.132/compiler/lib;/opt/intel/composer_xe_2015.2.132/mkl/lib;/usr/bin/ifort-15.0-base/compiler/lib;/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+Determining if the Fortran compiler supports Fortran 90 passed with the following output:
+Change Dir: /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/opt/local/bin/gmake" "cmTryCompileExec2342238687/fast"
+/opt/local/bin/gmake -f CMakeFiles/cmTryCompileExec2342238687.dir/build.make CMakeFiles/cmTryCompileExec2342238687.dir/build
+gmake[1]: Entering directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+/Applications/CMake.app/Contents/bin/cmake -E cmake_progress_report /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building Fortran object CMakeFiles/cmTryCompileExec2342238687.dir/testFortranCompilerF90.f90.o
+/usr/bin/ifort    -c /Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp/testFortranCompilerF90.f90 -o CMakeFiles/cmTryCompileExec2342238687.dir/testFortranCompilerF90.f90.o
+Linking Fortran executable cmTryCompileExec2342238687
+/Applications/CMake.app/Contents/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2342238687.dir/link.txt --verbose=1
+/usr/bin/ifort       CMakeFiles/cmTryCompileExec2342238687.dir/testFortranCompilerF90.f90.o  -o cmTryCompileExec2342238687  
+gmake[1]: Leaving directory '/Users/lello/Workspace/molfc3/build/CMakeFiles/CMakeTmp'
+
+
