@@ -56,15 +56,15 @@ contains
         integer :: status, ierr, alloc_err
         integer :: numat, nvib, nstate, nmol, i, j, ios, n0
         integer :: iu, is, im, ratom, istate, imol, ifile
-        integer :: isol, ieol, iam, anum, ist, lenstr, iz, nodeid
+        integer :: isol, ieol, iam, anum, ist, lenstr, iz, xnodeid
         logical :: linear, readin, hpmodes, bool
         real(kind=dp) :: rval, zcpl, muc
         real(kind=dp) :: amass, x, y, z, fscale
         real(kind=dp), allocatable :: freq(:)
 
         type(Node), pointer :: xmlDoc
-        type(Node), pointer :: node, np, nsNode, nstru, stateNode, cNode, muNode, dofNode
-        type(NodeList), pointer :: nodeList, nList, nsList, nmList, nmuList, ntmList, cList, dofList
+        type(Node), pointer :: xnode, np, nsNode, nstru, stateNode, cNode, muNode, dofNode
+        type(NodeList), pointer :: xnodeList, nList, nsList, nmList, nmuList, ntmList, cList, dofList
 
         !    type(dictionary_t) :: attributes
         character(len=STRLEN) :: str, substr
@@ -73,27 +73,27 @@ contains
         xmlDoc => parsefile(filename(1:len_trim(filename)))
         call normalize(xmlDoc)
 
-        nodeList => getElementsByTagName(xmlDoc, "input")
-        if (getLength(nodeList) == 0) ierr = error(0,"Missing <input> tag.")
-        if (getLength(nodeList) > 1) ierr = error(0,"Too many <input> tags (max = 1).")
+        xnodeList => getElementsByTagName(xmlDoc, "input")
+        if (getLength(xnodeList) == 0) ierr = error(0,"Missing <input> tag.")
+        if (getLength(xnodeList) > 1) ierr = error(0,"Too many <input> tags (max = 1).")
     
-        ! node => <input>
-        node => item(nodeList,0)
-        ! get childs of <input>, ie all the files nodes
-        nList => getElementsByTagName(node, "system")
-        if (getLength(nodeList) == 0) ierr = error(0,"Missing <system>.")
-        if (getLength(nodeList) > 1) ierr = error(0,"Too many <system> tags (max = 1).")
+        ! xnode => <input>
+        xnode => item(xnodeList,0)
+        ! get childs of <input>, ie all the files xnodes
+        nList => getElementsByTagName(xnode, "system")
+        if (getLength(xnodeList) == 0) ierr = error(0,"Missing <system>.")
+        if (getLength(xnodeList) > 1) ierr = error(0,"Too many <system> tags (max = 1).")
 
-        node => item(nList,0)
-        nsList => getElementsByTagName(node,"state")
-        ! get List of <tm> nodes
-        ntmList => getElementsByTagName(node,"tm")
+        xnode => item(nList,0)
+        nsList => getElementsByTagName(xnode,"state")
+        ! get List of <tm> xnodes
+        ntmList => getElementsByTagName(xnode,"tm")
    
         nstate = getLength(nsList)
         system%nstate = nstate
         allocate(system%state(1:nstate)) !Alloca gli stati elettronici
 
-        value = getAttribute(node,"type")
+        value = getAttribute(xnode,"type")
         if (.not.isempty(value)) then
             if (value == "model") system%model = .true.
         !      if (ios /= 0) ierr = error(0,"Cannot read system type")
@@ -105,12 +105,12 @@ contains
         !-----------------------------------------------------------------------!
         if (system%model) then
             do is = 1, system%nstate
-                node => item(nsList,is-1)
+                xnode => item(nsList,is-1)
 
-                value = getAttribute(node,"id")
+                value = getAttribute(xnode,"id")
                 if (.not.isempty(value)) system%state(is)%id = value
 	
-                value = getAttribute(node,"energy")
+                value = getAttribute(xnode,"energy")
                 if (.not.isempty(value)) then
                     read(value,*,iostat=ios) system%state(is)%energy
                     if (ios /= 0) ierr = error(0,"Cannot read state energy")
@@ -121,12 +121,12 @@ contains
                 system%state(is)%molecule%id = "molecule" ! set molecule id to "molecule"
             
                 ! Legge <freq>
-                nmList => getElementsByTagName(node,"freq")
-                node => item(nmList,0)
+                nmList => getElementsByTagName(xnode,"freq")
+                xnode => item(nmList,0)
 
                 im = 1 ! set molecule number
             
-                value = getAttribute(node,"nvib")
+                value = getAttribute(xnode,"nvib")
                 if (.not.isempty(value)) then
                     read(value,*,iostat=ios) nvib
                     system%state(is)%molecule%nvib = nvib
@@ -139,8 +139,8 @@ contains
 
                 ! Check if we have a file attribute
                 value = ""
-                if (hasAttribute(node,"file")) then
-                    value = getAttribute(node,"file")
+                if (hasAttribute(xnode,"file")) then
+                    value = getAttribute(xnode,"file")
                 end if
                 if (.not.isempty(value)) then
                     !---------------------------------+
@@ -155,14 +155,14 @@ contains
                     ! Read frequencies from xml file  |
                     !---------------------------------+
                     allocate(freq(1:nvib))
-                    call extractDataContent(node,freq)
+                    call extractDataContent(xnode,freq)
                     system%state(is)%molecule%normodes%vibration(1:nvib)%freq = freq
                     deallocate(freq)
                 end if
                 ! allocate NVIB vibrations
                 !allocate(system%state(is)%molecule%normodes%vibration(1:nvib))
-                !node => getFirstChild(node)
-                !str = getNodeValue(node)
+                !xnode => getFirstChild(xnode)
+                !str = getNodeValue(xnode)
                 !call build_data_array(str,system%state(is)%molecule%normodes%vibration(1:nvib)%freq)
                 ! controlla le freqeuenze del modello non siano troppo basse o negative (per errore di input...)
                 if (any(system%state(is)%molecule%normodes%vibration(1:nvib)%freq <= 1.0e-2)) &
@@ -179,44 +179,44 @@ contains
         ! Nei cicli do non si devono modificare nsList e nmList !!
         ST: do is = 1, system%nstate
 
-            node => item(nsList, is - 1)
-            value = getAttribute(node,"id")
+            xnode => item(nsList, is - 1)
+            value = getAttribute(xnode,"id")
             if (.not.isempty(value)) system%state(is)%id = value
 
-            value = getAttribute(node,"energy")
+            value = getAttribute(xnode,"energy")
             if (.not.isempty(value)) then
                 read(value,*,iostat=ios) system%state(is)%energy
                 if (ios /= 0) ierr = error(0,"Cannot read state energy")
             end if
 
-            value = getAttribute(node,"zcpl")
+            value = getAttribute(xnode,"zcpl")
             if (.not.isempty(value)) then
                 read(value,*,iostat=ios) system%state(is)%zcpl
                 if (ios /= 0) ierr = error(0,"Cannot read state zcpl")
             end if
 
             ! Get number of molecule in state IS.
-            nmList => getElementsByTagName(node,"molecule")
+            nmList => getElementsByTagName(xnode,"molecule")
             nmol = getLength(nmList)
             system%state(is)%nmol = nmol
             if (nmol > 1) ierr = error(0,"Only one molecule allowed per calculation.")
 
             MOL:    do im = 1, nmol
 
-                node => item(nmList, im - 1)
+                xnode => item(nmList, im - 1)
                 !+----------------+
                 ! Get molecule id |
                 !+----------------+
-                value = getAttribute(node,"id")
+                value = getAttribute(xnode,"id")
                 if (.not.isempty(value)) then
                     read(value,*,iostat=ios) system%state(is)%molecule%id
                     if (ios /= 0) ierr = error(0,"Cannot read molecule id")
                 end if
 
                 !+------------------------+
-                !  Parse node <structure> |
+                !  Parse xnode <structure> |
                 !+------------------------+
-                nList => GetElementsByTagName(node, "structure")
+                nList => GetElementsByTagName(xnode, "structure")
                 if (getLength(nList) == 0) ierr = error(0,"Missing <structure>.")
                 if (getLength(nList) > 1) ierr = error(0,"Too many <structure> tags (max = 1).")
                 np => item(nList, 0)
@@ -280,9 +280,9 @@ contains
                 end if
 
                 !+--------------------------+
-                ! Parse node <normal_modes> |
+                ! Parse xnode <normal_modes> |
                 !+--------------------------+
-                nList => GetElementsByTagName(node, "normal_modes")
+                nList => GetElementsByTagName(xnode, "normal_modes")
                 if (getLength(nList) == 0) ierr = error(0,"Missing <normal_modes>.")
                 if (getLength(nList) > 1) ierr = error(0,"Too many <normal_modes> tags (max = 1).")
                 np => item(nList, 0)
@@ -518,8 +518,8 @@ contains
         character(len=*), intent(in) :: fname
 
         type(Node), pointer :: xmlDoc
-        type(Node), pointer :: node, np
-        type(NodeList), pointer :: nodeList, nList
+        type(Node), pointer :: xnode, np
+        type(NodeList), pointer :: xnodeList, nList
 
         character(len=STRLEN) :: filename
         character(len=STRLEN) :: value
@@ -529,15 +529,15 @@ contains
         xmlDoc => parsefile(trim(adjustl(filename)))
         call normalize(xmlDoc)
 
-        nodeList => getElementsByTagName(xmlDoc, "proc")
-        if (getLength(nodeList) > 1) ierr = error(0,"Too many <proc> tags.")
-        if (getLength(nodeList) == 0) return
+        xnodeList => getElementsByTagName(xmlDoc, "proc")
+        if (getLength(xnodeList) > 1) ierr = error(0,"Too many <proc> tags.")
+        if (getLength(xnodeList) == 0) return
 
         !print *, 'reading proc'
-        ! node => <proc>
-        node => item(nodeList,0)
+        ! xnode => <proc>
+        xnode => item(xnodeList,0)
 
-        nList => getElementsByTagName(node,"reorder")
+        nList => getElementsByTagName(xnode,"reorder")
 
         if (getLength(nList) > 0) then
             allocate(proc%reorder(1:getLength(nList)),stat=alloc_err)
@@ -581,11 +581,12 @@ contains
             end do
         end if
 
-        ! node => <frame>
-        nList => getElementsByTagName(node,"frame")
-        allocate(proc%frame(1:getLength(nList)),stat=alloc_err)
-        if (alloc_err /= 0) ierr = error(0,"Cannot allocate frame sequence in <frame>")
-
+        ! xnode => <frame>
+        nList => getElementsByTagName(xnode,"frame")
+        if (getLength(nList) > 0) then
+          allocate(proc%frame(1:getLength(nList)),stat=alloc_err)
+          if (alloc_err /= 0) ierr = error(0,"Cannot allocate frame sequence in <frame>")
+        end if
         ! read <frame>
         do i = 0, getLength(nList) - 1
             np => item(nList,i)
@@ -605,7 +606,7 @@ contains
         end do
 
         ! Read <subset>: this is used if we want to completely remove some vibrations from the calculation
-        nList => getElementsByTagName(node,"subset")
+        nList => getElementsByTagName(xnode,"subset")
         if (getLength(nList) > 0) then
         if (getLength(nList) == 2) then
             allocate(proc%subset(1:getLength(nList)),stat=alloc_err)
@@ -631,8 +632,8 @@ contains
         character(len=*), intent(in) :: fname
 
         type(Node), pointer :: xmlDoc
-        type(Node), pointer :: node, np
-        type(NodeList), pointer :: nodeList, nList
+        type(Node), pointer :: xnode, np
+        type(NodeList), pointer :: xnodeList, nList
 
         !    type(dictionary_t) :: attributes
         character(len=STRLEN) :: str
@@ -649,14 +650,14 @@ contains
         xmlDoc => parsefile(filename(1:len_trim(filename)))
         call normalize(xmlDoc)
 
-        nodeList => getElementsByTagName(xmlDoc, "input")
-        if (getLength(nodeList) == 0) ierr = error(0,"Missing <input> tag.")
-        if (getLength(nodeList) > 1) ierr = error(0,"Too many <input> tags (max = 1).")
+        xnodeList => getElementsByTagName(xmlDoc, "input")
+        if (getLength(xnodeList) == 0) ierr = error(0,"Missing <input> tag.")
+        if (getLength(xnodeList) > 1) ierr = error(0,"Too many <input> tags (max = 1).")
     
-        ! node => <input>
-        node => item(nodeList,0)
-        ! get childs of <input>, ie all the files nodes
-        nList => getElementsByTagName(node, "job")
+        ! xnode => <input>
+        xnode => item(xnodeList,0)
+        ! get childs of <input>, ie all the files xnodes
+        nList => getElementsByTagName(xnode, "job")
         njob = getLength(nList)
 
         if (njob == 0) ierr = error(0,"At least one <job> must be specified")
@@ -674,9 +675,9 @@ contains
 
     !==============================================================================
 
-    subroutine get_job(root_node, job)
+    subroutine get_job(root_xnode, job)
     
-        type(Node),  pointer, intent(in) ::  root_node
+        type(Node),  pointer, intent(in) ::  root_xnode
         type(job_t), intent(inout) :: job
 
         type(Node), pointer :: np, myNode
@@ -688,16 +689,16 @@ contains
         integer nfcj, nevj, ntrnj
 
         !job%nmeth = 0
-        job%nmeth = getLength(getElementsByTagName(root_node,"fc")) + &
-        getLength(getElementsByTagName(root_node,"transform")) + &
-        getLength(getElementsByTagName(root_node,"dos"))
-        !getLength(getElementsByTagName(node,"fcwd"))
-        !nList => getElementsByTagName(node,"fc")
+        job%nmeth = getLength(getElementsByTagName(root_xnode,"fc")) + &
+        getLength(getElementsByTagName(root_xnode,"transform")) + &
+        getLength(getElementsByTagName(root_xnode,"dos"))
+        !getLength(getElementsByTagName(xnode,"fcwd"))
+        !nList => getElementsByTagName(xnode,"fc")
         !job%nmeth = getLength(nList)
-        nfcj = getLength(getElementsByTagName(root_node,"fc"))
-        !nList => getElementsByTagName(node,"transform")
+        nfcj = getLength(getElementsByTagName(root_xnode,"fc"))
+        !nList => getElementsByTagName(xnode,"transform")
         !job%nmeth = job%nmeth +  getLength(nList)
-        ntrnj = getLength(getElementsByTagName(root_node,"transform"))
+        ntrnj = getLength(getElementsByTagName(root_xnode,"transform"))
         if (ntrnj > 1) ierr = error(0,"Only one <transform> allowed per job.")
         !job%nmeth = job%nmeth +  getLength(nList)
         !nevj =  getLength(nList)
@@ -707,7 +708,7 @@ contains
         if (nfcj > 0) allocate(job%fc(1:nfcj))
         allocate(job%trns)
 
-        nList => getChildNodes(root_node)
+        nList => getChildNodes(root_xnode)
 
         ie = 0
         ifc = 0
@@ -745,9 +746,9 @@ contains
 
     ! This subroutine allows to select only a few vibrations in the computation of the Duschinsky transformation
 
-    SUBROUTINE get_subset(root_node, subset)
+    SUBROUTINE get_subset(root_xnode, subset)
 
-        type(Node), pointer, intent(in) :: root_node
+        type(Node), pointer, intent(in) :: root_xnode
         type(Node), pointer :: np, myNode
         type(NodeList), pointer :: npList
         type(subset_t), intent(out) :: subset
@@ -756,8 +757,8 @@ contains
         character(len=3*STRLEN) :: value
 
             ! the molecule defining group IG
-            subset%state = getAttribute(root_node,"state")
-            value = getAttribute(root_node,"nvib")
+            subset%state = getAttribute(root_xnode,"state")
+            value = getAttribute(root_xnode,"nvib")
             if (isempty(value)) then
                 ! include all vibrations
                 subset%nvib = system%state(1)%molecule%nvib
@@ -767,7 +768,7 @@ contains
             end if
             allocate(subset%incvib(1:subset%nvib))
             ! get included vibrations
-            np => getFirstChild(root_node)
+            np => getFirstChild(root_xnode)
             if (associated(np)) then
                 value = getNodeValue(np)
                 ! get included vibrations
@@ -783,40 +784,40 @@ contains
 
 	! This subroutine reads the  density of states (dos) job.
 
-	SUBROUTINE get_job_dos(root_node, dosjob)
+	SUBROUTINE get_job_dos(root_xnode, dosjob)
 
-	type(Node), pointer :: root_node
+	type(Node), pointer :: root_xnode
 	type(dos_t), intent(out) :: dosjob
 
     character(len=STRLEN) :: value
 	integer :: ios, ierr
 
-	dosjob%state = getAttribute(root_node,"state")
+	dosjob%state = getAttribute(root_xnode,"state")
     if (isempty(dosjob%state)) dosjob%state = system%state(1)%id ! default value: state 1
 
     ! Controllare che la soluzione con "all" funzioni...
-	dosjob%molecule = getAttribute(root_node,"molecule")
+	dosjob%molecule = getAttribute(root_xnode,"molecule")
     if (isempty(dosjob%molecule)) dosjob%molecule = "all" ! default value all moecules included
 
-	dosjob%file = getAttribute(root_node,"file")
+	dosjob%file = getAttribute(root_xnode,"file")
 	if (isempty(dosjob%file)) dosjob%file = "dos_states.dos"
 
-	dosjob%method = getAttribute(root_node,"method")
+	dosjob%method = getAttribute(root_xnode,"method")
     if (isempty(dosjob%method)) dosjob%method = "brsw" ! default: Beyer-Swinehart algorthm
 
-	value = getAttribute(root_node,"emin")
+	value = getAttribute(root_xnode,"emin")
     if (.not.isempty(value)) then
       read(value,*,iostat=ios) dosjob%emin
       if (ios /= 0) ierr = error(0,"Cannot read EMIN")
     end if
 
-	value = getAttribute(root_node,"emax")
+	value = getAttribute(root_xnode,"emax")
     if (.not.isempty(value)) then
       read(value,*,iostat=ios) dosjob%emax
       if (ios /= 0) ierr = error(0,"Cannot read EMAX")
     end if
 
-	value = getAttribute(root_node,"egrain")
+	value = getAttribute(root_xnode,"egrain")
     if (.not.isempty(value)) then
       read(value,*,iostat=ios) dosjob%egrain
       if (ios /= 0) ierr = error(0,"Cannot read EGRAIN")
@@ -827,10 +828,10 @@ contains
 
     !==============================================================================
 
-    subroutine get_job_fc (root_node, fc_job)
+    subroutine get_job_fc (root_xnode, fc_job)
 
-        type(Node), pointer, intent(in) ::  root_node
-        type(Node), pointer :: np, myNode, gnode
+        type(Node), pointer, intent(in) ::  root_xnode
+        type(Node), pointer :: np, myNode, gxnode
         type(fc_t), intent(out) :: fc_job
 
         type(NodeList), pointer ::  nList, nsList, nmList, vibList, npList
@@ -841,43 +842,43 @@ contains
         integer, pointer :: exvib(:)
     
         ! Get some attributes of <fc>
-        value =  getAttribute(root_node,"plevel")
+        value =  getAttribute(root_xnode,"plevel")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) fc_job%printlevel
             if (ios /= 0) ierr = error(0,"Cannot read plevel in <fc>")
         end if
 
-        value =  getAttribute(root_node,"fcht")
+        value =  getAttribute(root_xnode,"fcht")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) fc_job%fcht
             if (ios /= 0) ierr = error(0,"Cannot read fcht in <fc>")
         end if
 
-        value =  getAttribute(root_node,"class")
+        value =  getAttribute(root_xnode,"class")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) fc_job%class
             if (ios /= 0) ierr = error(0,"Cannot read class in <fc>")
         end if
 
-        value =  getAttribute(root_node,"Temp")
+        value =  getAttribute(root_xnode,"Temp")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) fc_job%Temp
             if (ios /= 0) ierr = error(0,"Cannot read class in <fc>")
         end if
 
-              !value =  getAttribute(root_node,"berk")
+              !value =  getAttribute(root_xnode,"berk")
               !if (.not.isempty(value)) then
               !    read(value,*,iostat=ios) fc_job%berk
               !    if (ios /= 0) ierr = error(0,"Cannot read berk in <fc>")
               !end if
 
-        value =  getAttribute(root_node,"pert")
+        value =  getAttribute(root_xnode,"pert")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) fc_job%pert
             if (ios /= 0) ierr = error(0,"Cannot read pert")
         end if
 
-        value = getAttribute(root_node,"order")
+        value = getAttribute(root_xnode,"order")
         if (.not.isempty(value)) then
             if (.not.fc_job%pert) ierr = error(0,'Please remove order attirbute or select a perturbative calculation.')
             read(value,*,iostat=ios) fc_job%order
@@ -886,31 +887,31 @@ contains
 
         ! E' inutile leggere questa variabile: viene automaticamente messa .true.
         ! se nell'input ?? presente <spectrum>
-        !value =  getAttribute(node,"fcspec")
+        !value =  getAttribute(xnode,"fcspec")
         !if (.not.isempty(value)) then
         !  read(value,*,iostat=ios) fc_job%fcspec
         !  if (ios /= 0) ierr = error(0,"Cannot read fcspec")
         !end if
 
-        value =  getAttribute(root_node,"printfc")
+        value =  getAttribute(root_xnode,"printfc")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) fc_job%printfc
             if (ios /= 0) ierr = error(0,"Cannot read print")
         end if
 
-        value =  getAttribute(root_node,"ftol")
+        value =  getAttribute(root_xnode,"ftol")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) fc_job%ftol
             if (ios /= 0) ierr = error(0,"Cannot read ftol")
         end if
 
-        value =  getAttribute(root_node,"nclasses")
+        value =  getAttribute(root_xnode,"nclasses")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) fc_job%nclasses
             if (ios /= 0) ierr = error(0,"Cannot read nclasses")
         end if
 
-        nsList => getElementsByTagName(root_node,"kubo")
+        nsList => getElementsByTagName(root_xnode,"kubo")
         if (getLength(nsList) > 0) then
             fc_job%kubo%on = .true.
             myNode =>item(nsList,0)
@@ -940,7 +941,7 @@ contains
 
         ! Definisce il file dove salvare lo spettro e le caratteristiche dello
         ! spettro: FWHM, e forma (shape), che puo' essere lorentziana o gaussiana.
-        nsList => getElementsByTagName(root_node,"spectrum")
+        nsList => getElementsByTagName(root_xnode,"spectrum")
         if (getLength(nsList) >= 1)  then
             fc_job%fcspec = .true.
             myNode =>item(nsList,0)
@@ -991,7 +992,7 @@ contains
         ! It is possible to define several group and then take the tensor product of all the FCs   |
         ! as the overall FC integral.                                                              |
         !------------------------------------------------------------------------------------------+
-        nsList => getElementsByTagName(root_node,"group")
+        nsList => getElementsByTagName(root_xnode,"group")
         if (getLength(nsList) >= 1) then
             fc_job%ngroup = getLength(nsList)
         else
@@ -1014,9 +1015,9 @@ NG:     do ! Start looping over <group>
         
             ig = ig + 1
 		        
-            gnode => item(nsList,ig-1) ! point to <group>
-            if (associated(gnode)) then
-                value = getAttribute(gnode,"id")
+            gxnode => item(nsList,ig-1) ! point to <group>
+            if (associated(gxnode)) then
+                value = getAttribute(gxnode,"id")
                 read(value,*,iostat=ios) fc_job%group(ig)%id
                 if (ios /= 0) then
                     ! automatically assign group id if missing
@@ -1030,15 +1031,15 @@ NG:     do ! Start looping over <group>
             ! <include> pu?? essere letto sia in <group> che nel nodo principale <fc>.
             ! serve per compatibilit?? con gli input vecchi. Si consiglia di mettere <include> sempre
             ! dentro <group>.
-            if (associated(gnode)) then
-                npList => getElementsByTagName(gnode,"include") ! cerca nel nodo <group>
+            if (associated(gxnode)) then
+                npList => getElementsByTagName(gxnode,"include") ! cerca nel nodo <group>
             else
-                npList => getElementsByTagName(root_node,"include") ! cerca nel nodo <fc>
+                npList => getElementsByTagName(root_xnode,"include") ! cerca nel nodo <fc>
             end if
 
             if (getLength(npList) == 1) then
                 ! Ha trovato il nodo <include> e lo legge
-                myNode => item(npList,0) ! point to <include> node
+                myNode => item(npList,0) ! point to <include> xnode
                 ! the molecule defining group IG
                 if (hasAttribute(myNode,"molecule")) then
                     fc_job%group(ig)%incvib%mol = getAttribute(myNode,"molecule")
@@ -1075,10 +1076,10 @@ NG:     do ! Start looping over <group>
             end if
 
             ! Dopo aver letto <include> npList ora viene associata al tag <active>
-            if (associated(gnode)) then
-                npList => getElementsByTagName(gnode,"active") ! find <active> inside <group>
+            if (associated(gxnode)) then
+                npList => getElementsByTagName(gxnode,"active") ! find <active> inside <group>
             else
-                npList => getElementsByTagName(root_node,"active") ! find <active> inside <fc>
+                npList => getElementsByTagName(root_xnode,"active") ! find <active> inside <fc>
             end if
         
             allocate(fc_job%group(ig)%active(1:getLength(npList)),stat=alloc_err)
@@ -1087,9 +1088,9 @@ NG:     do ! Start looping over <group>
                     !----------------------------------------+
                     ! Cycle over <active> tag  in <group> ig |
                     !----------------------------------------+
-                    ! If two or more <ative> tags with different molecules are found in the <fc> node then
+                    ! If two or more <ative> tags with different molecules are found in the <fc> xnode then
                     ! the group number IG is changed accordingly.
-                    ! This allow to use old (and simpler) input style without the definition of the <group> node.
+                    ! This allow to use old (and simpler) input style without the definition of the <group> xnode.
                     ! TODO: Devo aggiungere un controllo su eventuali ripetizioni dei modi attivi in fase di input.
                     ! Il calcolo in tal caso va avanti senza accorgersi dell'errore.
 AC:         do i = 0, getLength(npList) - 1
@@ -1218,13 +1219,13 @@ VB:             do k = 0, getLength(vibList) - 1
 
     !==============================================================================
 
-    subroutine get_job_transf (root_node, trns_job)
+    subroutine get_job_transf (root_xnode, trns_job)
 
-        type(Node), pointer, intent(in) ::  root_node
+        type(Node), pointer, intent(in) ::  root_xnode
         type(Node), pointer ::  np, npc
         type(transf_t), intent(out) :: trns_job
 
-        type(Node), pointer ::  cnode
+        type(Node), pointer ::  cxnode
         type(NodeList), pointer ::  nList, nsList, ncList
 
         character(len=STRLEN) :: value, molid, alist, valuec
@@ -1238,17 +1239,17 @@ VB:             do k = 0, getLength(vibList) - 1
         real(kind=dp) :: coeff
 
         ! Get some attributes of <transformation>
-        trns_job%molecule = getAttribute(root_node,"molecule")
+        trns_job%molecule = getAttribute(root_xnode,"molecule")
         ! Set molecule to default molecule, i.e. the first of the first electronic state.
         if (isempty(trns_job%molecule)) trns_job%molecule = system%state(1)%molecule%id
 
-        value = getAttribute(root_node,"tm_rotate")
+        value = getAttribute(root_xnode,"tm_rotate")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) trns_job%tm_rotate
             if (ios /= 0) ierr = error(0,"Cannot read tm_rotate in <transformation>.")
         end if
 
-        value = getAttribute(root_node,"type")
+        value = getAttribute(root_xnode,"type")
         if (.not.isempty(value)) then
             if (value == "model") then
                 trns_job%model = .true.
@@ -1263,7 +1264,7 @@ VB:             do k = 0, getLength(vibList) - 1
         !+------------------------------+
         if (trns_job%model) then
             ! Read normal modes rotations
-            nsList => getElementsByTagName(root_node,"dusch")
+            nsList => getElementsByTagName(root_xnode,"dusch")
             np => item(nsList,0)
             if (associated(np)) then
                 trns_job%modr%file = getAttribute(np,"file")
@@ -1272,7 +1273,7 @@ VB:             do k = 0, getLength(vibList) - 1
                 if (associated(np)) trns_job%modr%data = getNodeValue(np)
             end if
             ! Read normal modes shift
-            nsList => getElementsByTagName(root_node,"shift")
+            nsList => getElementsByTagName(root_xnode,"shift")
             np => item(nsList,0)
             if (associated(np)) then
                 trns_job%modk%file = getAttribute(np,"file")
@@ -1284,7 +1285,7 @@ VB:             do k = 0, getLength(vibList) - 1
             return
         end if
     
-        trns_job%coord = getAttribute(root_node,"coord")
+        trns_job%coord = getAttribute(root_xnode,"coord")
         ! Default transformation type is Cartesian.
         if (isempty(trns_job%coord)) trns_job%coord = "cartesian"
 
@@ -1301,13 +1302,13 @@ VB:             do k = 0, getLength(vibList) - 1
 
         ! The next two options can be used if we want to modify internal coordinates after they have
         ! been generated.
-        value = getAttribute(root_node,"icfile")
+        value = getAttribute(root_xnode,"icfile")
         if (.not.isempty(value)) then
             trns_job%setic = .true.
             trns_job%icfile = value
         end if
 
-        value = getAttribute(root_node,"setic")
+        value = getAttribute(root_xnode,"setic")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) trns_job%setic
             if (ios /= 0) ierr = error(0,"Cannot read SETIC in <transformation>.")
@@ -1320,19 +1321,19 @@ VB:             do k = 0, getLength(vibList) - 1
         end if
 
         ! Read attribute for printing level (not yet used).
-        value = getAttribute(root_node,"plevel")
+        value = getAttribute(root_xnode,"plevel")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) trns_job%printlevel
             if (ios /= 0) ierr = error(0,"Cannot read PLEVEL in <transformation>.")
         end if
 
-        value = getAttribute(root_node,"debug")
+        value = getAttribute(root_xnode,"debug")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) trns_job%debug
             if (ios /= 0) ierr = error(0,"Cannot read DEBUG in <transformation>.")
         end if
 
-        value = getAttribute(root_node,"dusch")
+        value = getAttribute(root_xnode,"dusch")
         if (.not.isempty(value)) then
             read(value,*,iostat=ios) trns_job%dusch
             if (ios /= 0) ierr = error(0,"Cannot read DUSCH in <transformation>.")
@@ -1340,7 +1341,7 @@ VB:             do k = 0, getLength(vibList) - 1
 
         ! Possiamo specificare manualmente quale soluzione del problema di axis switching
         ! scegliamo.
-        nList => getElementsByTagName(root_node,"axsw")
+        nList => getElementsByTagName(root_xnode,"axsw")
         if (getLength(nList) > 0) then
 
             trns_job%axsw%on = .true.
@@ -1365,7 +1366,7 @@ VB:             do k = 0, getLength(vibList) - 1
 
         ! In questo nodo si seleziona l'utilizzo delle coordinate Out Of Plane Bengind
         ! e vengono definite manualmente le coordinate interne
-        nList => getElementsByTagName(root_node,"internal_coordinates")
+        nList => getElementsByTagName(root_xnode,"internal_coordinates")
 
 INTCIF: if (getLength(nList) > 0) then
 
@@ -1473,7 +1474,7 @@ COORD_DO:         do ic = 1, getLength(nsList)
         end do INTC_DO
     end if INTCIF
 
-        nList => getElementsByTagName(root_node,"natural_internal_coordinates")
+        nList => getElementsByTagName(root_xnode,"natural_internal_coordinates")
 
 NATINT_IF: if (getLength(nList) > 0) then
 
@@ -1713,21 +1714,21 @@ subroutine read_tm(ntmList)
     !-------------------------!
     type(NodeList), intent(in), pointer :: ntmList
 
-    integer :: i, j, nodeid, ierr
+    integer :: i, j, xnodeid, ierr
     real(kind=dp) :: muc
     character(len=1), parameter :: xyz(1:3) = (/'x', 'y', 'z'/)
     character(len=STRLEN) :: value
 
-    type(Node), pointer :: node, cNode, muNode, dofNode
+    type(Node), pointer :: xnode, cNode, muNode, dofNode
     type(NodeList), pointer :: nmuList, cList, dofList
 
 
     if (getLength(ntmList) == 1) then
         allocate (system%tm%dmudQ(1:3,1:system%state(1)%nvib))
         system%tm%dmudQ(1:3,1:system%state(1)%nvib) = zero
-        node => item(ntmList,0)
+        xnode => item(ntmList,0)
 
-        nmuList => getElementsByTagName(node,"mu0")
+        nmuList => getElementsByTagName(xnode,"mu0")
         do i = 1, getLength(nmuList)
             muNode => item(nmuList,i-1)
             do j = 1, 3
@@ -1744,14 +1745,14 @@ subroutine read_tm(ntmList)
             end do
         end do
 
-        nmuList => getElementsByTagName(node,"mu1")
+        nmuList => getElementsByTagName(xnode,"mu1")
         do i = 1, getLength(nmuList)
             muNode => item(nmuList,i-1)
             dofList => getElementsByTagName(muNode,"dof")
             dofNode => item(dofList,0)
             value = getAttribute(dofNode,"id")
             if (isempty(value)) ierr = error(0,"Error in tag <tm><dof>.")
-            read(value,*) nodeid
+            read(value,*) xnodeid
             do j = 1, 3
                 cList => getElementsByTagName(muNode,xyz(j))
                 if (getLength(cList) > 0) then
@@ -1761,10 +1762,10 @@ subroutine read_tm(ntmList)
                     if (getNodeType(cNode) /= TEXT_NODE) ierr = error(0,"error in <tm><mu1><x|y|z>")
                     value = getNodeValue(cNode)
                     read(value,*) muc
-                    !print *, nodeid
+                    !print *, xnodeid
                     !print *, muc
                     !print *, 'nvib ', system%state(1)%nvib
-                    system%tm%dmudQ(j,nodeid) = muc
+                    system%tm%dmudQ(j,xnodeid) = muc
                 end if
             end do
         end do
