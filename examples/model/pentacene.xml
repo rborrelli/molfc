@@ -1,0 +1,44 @@
+<input>
+
+  <system type="model">
+    <state id="STATE1">
+      <freq nvib="7"> 
+ 265.5800 823.7200 1054.630 1195.410 1234.540 1443.230 1572.800
+      </freq>    
+    </state>
+    <state id="STATE2">
+      <freq nvib="7"> 
+ 265.5800 823.7200 1054.630 1195.410 1234.540 1443.230 1572.800
+      </freq>    
+    </state>
+  </system>
+
+  <job>
+      <transform type="model">
+        <shift unit="dimless"> 
+         -0.40300 
+         -0.15300 
+         -0.16900 
+         -0.20600 
+         -0.37900 
+          0.56800 
+          0.48400 
+        </shift> 
+      </transform>
+
+      <fc printfc=".true." ftol="1e-8">
+         <spectrum file="fc7m.dat" emin="0.0" emax="50000.0" tol="1.0e-18" />
+         <active state="STATE1">
+               <vibration id="1-7" nq="15"/>
+         </active>
+      </fc> 
+  </job>
+
+</input>
+
+
+
+
+
+
+

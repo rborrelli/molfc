@@ -4,17 +4,18 @@ module transf_type
   
   implicit none
 
+  integer, parameter :: DATALEN = 1000000
 
   type, public :: mod_shift
     character(len=STRLEN) :: file = ""
-    character(len=STRLEN) :: data = ""
+    character(len=DATALEN) :: data = ""
     character(len=STRLEN) :: type = "DIM"
     character(len=STRLEN) :: coord = ""! tipo di coordinate (specifica se adimensionali o massa pesate)
   end type mod_shift
 
   type, public :: mod_rot
     character(len=STRLEN) :: file = ""
-    character(len=STRLEN) :: data = ""
+    character(len=DATALEN) :: data = ""
     character(len=STRLEN) :: coord = ""! tipo di coordinate (specifica se adimensionali o massa pesate)
   end type mod_rot
   
