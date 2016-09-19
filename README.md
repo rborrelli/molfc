@@ -23,7 +23,7 @@ git pull
 ##Prerequisites
 
 **It is highly recommended** that you use the Intel Fortran Compiler releases 15.0 or laters.
-**Gfortran compatibility is not guaranteed at the moment.
+**Gfortran compatibility is not guaranteed at the moment. The code won't compile with gfortran version <= 4.9. Minimum gfortran version is 5.0.
 
 ##Installing the package
 The installation of the package is done via cmake.
