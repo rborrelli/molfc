@@ -5,13 +5,13 @@ IF(Enable_LAPACK)
   set(NATTRANSF_SRC nattransf-lapack.f90)
 ELSE(Enable_LAPACK)
   set(ITRANSF_SRC itransf-mkl.f90)
-  set(NATTRANSF_SRC nattransf-mklf90)
+  set(NATTRANSF_SRC nattransf-mkl.f90)
 ENDIF(Enable_LAPACK)
 
 IF(Enable_FFTW3)
   set(KUBO_SRC kubo-fftw.f90)
 ELSE(Enable_FFTW3)
-  set(KUBO_SRC kubo.f90)
+  set(KUBO_SRC kubo-mkl.f90)
 ENDIF(Enable_FFTW3)
 
 add_executable(molfc3
@@ -66,18 +66,14 @@ dos/dos.f90
 
 link_directories(${CMAKE_BUILD_DIR}/lib)
 
-# For 64bit machines
-#target_link_libraries(molfc3 slatec fox_dom mkl_lapack95_lp64 mkl_intel_lp64 mkl_intel_thread mkl_core iomp5 pthread)
-# for 32bit machines
-#target_link_libraries(molfc3 slatec xml mkl_intel mkl_intel_thread mkl_core iomp5 pthread)
-#target_link_libraries(molfc3 slatec xml mkl_intel mkl_sequential mkl_core pthread)
-IF(Enable_LAPACK) 
+IF(Enable_MKL) 
+  message("Linking with MKL")
+  # For 64bit machines
+  target_link_libraries(molfc3 slatec fox_dom mkl_lapack95_lp64 mkl_intel_lp64 mkl_intel_thread mkl_core iomp5 pthread)
+ELSE(Enable_MKL)
   message("Linking without MKL")
   target_link_libraries(molfc3 slatec fftw3 fox_dom lapack blas iomp5 pthread)
-ELSE(Enable_LAPACK)
-  message("Linking with MKL")
-  target_link_libraries(molfc3 slatec fox_dom mkl_lapack95_lp64 mkl_intel_lp64 mkl_intel_thread mkl_core iomp5 pthread)
-ENDIF(Enable_LAPACK) 
+ENDIF(Enable_MKL) 
 
 install(TARGETS molfc3 DESTINATION /Users/lello/Applications/bin)
 

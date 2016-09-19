@@ -27,14 +27,20 @@ SET(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR}/mod)
 
 include_directories(src/include)
 
-#####  SET THIS VALUE ACCORDIND TO YOUR SYSTEM ########
-SET(INCLUDE_INTEL_DIRS "/opt/intel/mkl/include/intel64/lp64")
-#include_directories(/opt/intel/mkl/include/intel64/lp64)
-include_directories(${INCLUDE_INTEL_DIRS})
-
 #####  SET THIS VALUE TO ON OR OFF ACCORDING TO YOUR SYSTEM ########
-option(Enable_LAPACK "Compiling LAPACK and BLAS libraries" ON)
-option(Enable_FFTW3 "Compiling FFTW libraries" ON)
+option(Enable_MKL "Using preinstalled MKL libraries" OFF)
+
+IF(Enable_MKL)
+  #####  SET THIS VALUE ACCORDING TO YOUR SYSTEM ########
+  SET(INCLUDE_INTEL_DIRS "/opt/intel/mkl/include/intel64/lp64")
+  include_directories(${INCLUDE_INTEL_DIRS})
+ENDIF(Enable_MKL)
+
+# If MKL are disabled we have to compile BLAS/LAPACK and FFTW
+IF(NOT Enable_MKL)
+  option(Enable_LAPACK "Compiling LAPACK and BLAS libraries" ON)
+  option(Enable_FFTW3 "Compiling FFTW libraries" ON)
+ENDIF(NOT Enable_MKL)
 
 IF (Enable_FFTW3)
 ####  Compile FFTW  #####
