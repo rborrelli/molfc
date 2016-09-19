@@ -36,6 +36,7 @@ include_directories(${INCLUDE_INTEL_DIRS})
 option(Enable_LAPACK "Compiling LAPACK and BLAS libraries" ON)
 option(Enable_FFTW3 "Compiling FFTW libraries" ON)
 
+IF (Enable_FFTW3)
 ####  Compile FFTW  #####
 include(ExternalProject)
 
@@ -48,11 +49,10 @@ ExternalProject_Add(
   BUILD_IN_SOURCE 0
 )
 
-IF (Enable_FFTW3)
   add_library(fftw3 STATIC IMPORTED)
   set_property(TARGET fftw3 PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/build/lib/libfftw3.a)
-  set_property(TARGET fftw3 PROPERTY INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/build/lib/fftw-3.3.5/src/fftw3-build/api)
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/build/lib/fftw-3.3.5/src/fftw3-build/api)
+  set_property(TARGET fftw3 PROPERTY INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/build/lib/fftw-3.3.5/src/libfftw3-build/api)
+  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/build/lib/fftw-3.3.5/src/libfftw3-build/api)
 ENDIF(Enable_FFTW3)
 
 add_subdirectory(lib)
