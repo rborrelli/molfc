@@ -1,1 +1,0 @@
-/usr/bin/ifort     -ftrapuv -traceback -debug -O0 -g -save-temps -fpic -Wl,-no_pie CMakeFiles/shape.dir/fgt.f90.o CMakeFiles/shape.dir/param.f90.o CMakeFiles/shape.dir/shape.f90.o CMakeFiles/shape.dir/sort.f90.o  -o ../../bin/shape  

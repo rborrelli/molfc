@@ -1,2 +1,5 @@
 add_subdirectory(slatec)
 add_subdirectory(fox-4.1.2)
+IF(Enable_LAPACK)
+  add_subdirectory(lapack-3.6.1)
+ENDIF(Enable_LAPACK)

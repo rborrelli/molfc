@@ -1,1 +1,0 @@
-/usr/bin/ifort     -ftrapuv -traceback -debug -O0 -g -save-temps -fpic -Wl,-no_pie CMakeFiles/intc.dir/intc1.f.o CMakeFiles/intc.dir/intc2.f.o CMakeFiles/intc.dir/intc3.f.o CMakeFiles/intc.dir/intc4.f.o CMakeFiles/intc.dir/intc5.f.o CMakeFiles/intc.dir/intc6.f.o  -o ../../bin/intc  ../../lib/libcolib.a -lmkl_core -lmkl_intel -lmkl_sequential 

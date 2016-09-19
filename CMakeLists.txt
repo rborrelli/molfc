@@ -32,6 +32,29 @@ SET(INCLUDE_INTEL_DIRS "/opt/intel/mkl/include/intel64/lp64")
 #include_directories(/opt/intel/mkl/include/intel64/lp64)
 include_directories(${INCLUDE_INTEL_DIRS})
 
+#####  SET THIS VALUE TO ON OR OFF ACCORDING TO YOUR SYSTEM ########
+option(Enable_LAPACK "Compiling LAPACK and BLAS libraries" ON)
+option(Enable_FFTW3 "Compiling FFTW libraries" ON)
+
+####  Compile FFTW  #####
+include(ExternalProject)
+
+ExternalProject_Add(
+  libfftw3
+  SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib/fftw-3.3.5
+  CONFIGURE_COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/lib/fftw-3.3.5/configure --prefix=${CMAKE_CURRENT_SOURCE_DIR}/build/
+  PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/build/lib/fftw-3.3.5
+  BUILD_COMMAND ${MAKE}
+  BUILD_IN_SOURCE 0
+)
+
+IF (Enable_FFTW3)
+  add_library(fftw3 STATIC IMPORTED)
+  set_property(TARGET fftw3 PROPERTY IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/build/lib/libfftw3.a)
+  set_property(TARGET fftw3 PROPERTY INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/build/lib/fftw-3.3.5/src/fftw3-build/api)
+  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/build/lib/fftw-3.3.5/src/fftw3-build/api)
+ENDIF(Enable_FFTW3)
+
 add_subdirectory(lib)
 add_subdirectory(src)
 add_subdirectory(utils)

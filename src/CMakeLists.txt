@@ -1,5 +1,19 @@
 #add_definitions(-DMAXMEM=200000000)
 
+IF(Enable_LAPACK)
+  set(ITRANSF_SRC itransf-lapack.f90)
+  set(NATTRANSF_SRC nattransf-lapack.f90)
+ELSE(Enable_LAPACK)
+  set(ITRANSF_SRC itransf-mkl.f90)
+  set(NATTRANSF_SRC nattransf-mklf90)
+ENDIF(Enable_LAPACK)
+
+IF(Enable_FFTW3)
+  set(KUBO_SRC kubo-fftw.f90)
+ELSE(Enable_FFTW3)
+  set(KUBO_SRC kubo.f90)
+ENDIF(Enable_FFTW3)
+
 add_executable(molfc3
 active.f90
 agric.f90
@@ -39,22 +53,31 @@ fc/fc_h.f90
 fc/fcint.f90
 fc/fcint_h.f90
 fc/fcio.f90
-fc/itransf.f90
+fc/${ITRANSF_SRC}
 fc/mtransf.f90
-fc/nattransf.f90
+fc/${NATTRANSF_SRC}
 fc/spectrum.f90
-fc/kubo.f90
+fc/${KUBO_SRC}
 fc/reorg.f90
 fc/fcpt.f90
 
 dos/dos.f90
 )
 
+link_directories(${CMAKE_BUILD_DIR}/lib)
+
 # For 64bit machines
-target_link_libraries(molfc3 slatec fox_dom mkl_lapack95_lp64 mkl_intel_lp64 mkl_intel_thread mkl_core iomp5 pthread)
+#target_link_libraries(molfc3 slatec fox_dom mkl_lapack95_lp64 mkl_intel_lp64 mkl_intel_thread mkl_core iomp5 pthread)
 # for 32bit machines
 #target_link_libraries(molfc3 slatec xml mkl_intel mkl_intel_thread mkl_core iomp5 pthread)
 #target_link_libraries(molfc3 slatec xml mkl_intel mkl_sequential mkl_core pthread)
+IF(Enable_LAPACK) 
+  message("Linking without MKL")
+  target_link_libraries(molfc3 slatec fftw3 fox_dom lapack blas iomp5 pthread)
+ELSE(Enable_LAPACK)
+  message("Linking with MKL")
+  target_link_libraries(molfc3 slatec fox_dom mkl_lapack95_lp64 mkl_intel_lp64 mkl_intel_thread mkl_core iomp5 pthread)
+ENDIF(Enable_LAPACK) 
 
 install(TARGETS molfc3 DESTINATION /Users/lello/Applications/bin)
 

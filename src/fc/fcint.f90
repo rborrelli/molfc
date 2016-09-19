@@ -433,6 +433,7 @@ XYZ:        do ixi = 1, 3
                 sumfc = sumfc + fccl%FC(r)**2
                 !if (fccl%FC(r)**2 > 1.0d-14) then
                 write(777,*) dot_product(freq,z(ivib)), fccl%FC(r)!, sumfc
+                !print *, r, z(ivib), fccl%FC(r)
                 !end if
             end if
         end do
@@ -822,11 +823,9 @@ XYZ:        do ixi = 1, 3
         write(777,*) zero, MDFC(1)
 
         !nsmx = (/30, 10, 5, 4, 2, 2, 1 /)
-        nsmx = (/30, 10, 5, 2, 1, 1, 1 /)
+        nsmx = (/15, 5, 2, 2, 1, 1, 1 /)
         allocate(umax(1:nmt))
         !umax(1:nvib) = 60 
-        umax(nvib+1:nmt) = 10 ! this is just to test the algorithm.
-                              ! Excite all vibrations of the excited state with N quanta.
         allocate(cvib(1:NCLASSES))
         allocate(fccl(1:NCLASSES))
         do i = 1, NCLASSES

@@ -15,7 +15,7 @@
 
   <job>
       <transform type="model">
-        <shift unit="dimless"> 
+        <shift type="dimless"> 
          -0.40300 
          -0.15300 
          -0.16900 
@@ -26,9 +26,9 @@
         </shift> 
       </transform>
 
-      <fc printfc=".true." ftol="1e-8">
+      <fc printfc=".true." ftol="1e-8" pert=".true." order="0">
          <spectrum file="fc7m.dat" emin="0.0" emax="50000.0" tol="1.0e-18" />
-         <active state="STATE1">
+         <active state="STATE2">
                <vibration id="1-7" nq="15"/>
          </active>
       </fc> 
