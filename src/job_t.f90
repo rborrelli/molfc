@@ -14,11 +14,11 @@ module job_type
   !========================================
 
   type, public :: job_t
-    integer :: nmeth
+    type(fc_t), allocatable :: fc(:)
     character(len=10), allocatable :: method(:)
     type(transf_t), allocatable :: trns
-    type(fc_t), allocatable :: fc(:)
     type(dos_t) :: dos
+    integer :: nmeth
   end type job_t
 
 end module job_type

@@ -32,8 +32,8 @@ job_t.f90
 matfun.f90
 messages.f90
 mkl_dfti.f90
-molfc.f90
-output.f90
+molfc.F90
+output.F90
 parameters.f90
 proc.f90
 proc_t.f90
@@ -72,7 +72,7 @@ IF(Enable_MKL)
   target_link_libraries(molfc3 slatec fox_dom mkl_lapack95_lp64 mkl_intel_lp64 mkl_intel_thread mkl_core iomp5 pthread)
 ELSE(Enable_MKL)
   message("Linking without MKL")
-  target_link_libraries(molfc3 slatec fftw3 fox_dom lapack blas iomp5 pthread)
+  target_link_libraries(molfc3 slatec fftw3 fox_dom lapack blas pthread)
 ENDIF(Enable_MKL) 
 
 install(TARGETS molfc3 DESTINATION /Users/lello/Applications/bin)

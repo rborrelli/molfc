@@ -323,7 +323,7 @@ module cartesian_transformation
  !   end if
 
     include 'formats'
-158 format(<isp+2>x,2(f10.3,3x))
+158 format(8x,2(f10.3,3x))
    
     !------------------------------------------------------------------------------!
     ! After printing the transformation we can deallocate the auxilyary array KMT  !

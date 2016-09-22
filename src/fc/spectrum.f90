@@ -159,7 +159,8 @@ contains
 
                 if (abs(MDFC(r)) >= fcjob%spectrum%tol) then
 
-                    efc = Energy(freq_final,z(nmd+1:nmt))-Energy(freq_initial,z(1:nmd)) + system%state(FINAL_STATE)%energy - system%state(INITIAL_STATE)%energy
+                    efc = Energy(freq_final,z(nmd+1:nmt))-Energy(freq_initial,z(1:nmd)) + & 
+                          system%state(FINAL_STATE)%energy - system%state(INITIAL_STATE)%energy
                     dex = Energy(freq_initial,z(1:nmd))/(bkcm*Temp)
                     bw = exp(-dex)
 

@@ -77,8 +77,8 @@ CONTAINS
                    	iv(ic) = l
                    end if
                 end do
-                write(fivb,'(<nc>(i3,1x))')(iv(l),l=1,nc) ! scrive gli indici dei modi eccitati
-                write(fnst,'(<nc>i3,2x,f10.2)')(a(iv(l)),l=1,nc), energy ! scrive lo stato trovato e la sua energia
+                write(fivb,'(20(i3,1x))')(iv(l),l=1,nc) ! scrive gli indici dei modi eccitati
+                write(fnst,'(20i3,2x,f10.2)')(a(iv(l)),l=1,nc), energy ! scrive lo stato trovato e la sua energia
                 ng = ng + 1    ! aggiorna il numero di stati eccitati
             else if ((energy > emax) .or.(a(i) > amax(i))) then     ! se l'energia è troppo alta o se si è superato
                 a(i) = a(i) - 1            						! il numero max di quanti sul modo i-esimo
