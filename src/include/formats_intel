@@ -8,21 +8,21 @@
                    ' at ',I2,':',I2,':',I2,/, &
                22x,'===============================================',//)
 101 format (/,'Tridiagonal matrix:',//)
-102    format (2e14.4)
-115    format (/,2x,'Initial state           ;    t = ',f8.2,2x,'fs',/)
-116    format (/,2x,'Propagation step : ',i6,1x,';    t = ',f9.2,2x,'fs',/)
+102	format (2e14.4)
+115	format (/,2x,'Initial state           ;    t = ',f8.2,2x,'fs',/)
+116	format (/,2x,'Propagation step : ',i6,1x,';    t = ',f9.2,2x,'fs',/)
 117     format (5x,'|',1x, i7,1x,'>',12x, 1(f8.5,8x))
 118     format (2x,i5,6x,'|', 4i2,';', i5, '>',8x, f10.2)
-119    format (/,3x,'index',11x,'state',16x,'energy',/)
-120    format (/,2x,'Selected states: ',20(2x,'|',i5,'>'),/)
-1252     format (/,17x,'+---------------------------------------+',/,&
+119	format (/,3x,'index',11x,'state',16x,'energy',/)
+120	format (/,2x,'Selected states: ',20(2x,'|',i5,'>'),/)
+1252 	format (/,17x,'+---------------------------------------+',/,&
                   17x,'|  Franck-Condon Integrals calculation  |',/,&
                   17x,'+---------------------------------------+',//)
-127    format (/,2x,'< Selected Ranges >')
-128       format(//,2x,'------------------------',/,&
+127	format (/,2x,'< Selected Ranges >')
+128   	format(//,2x,'------------------------',/,&
      2x,'FC calculation CPU time:',f10.5,/, &
      2x,'------------------------',/)
-191    format(//,2x,'--------------------------',/,2x,  &
+191	format(//,2x,'--------------------------',/,2x,  &
      'Results of the calculation',/,2x,  &  
      '--------------------------',//)
 1002    format(2x,'==============================================&
@@ -31,96 +31,96 @@
 1006    format(/,2x,'=============',/,&
 2x,'States search:',/,&
 2x,'=============',/)
-1008    format (2x,'|',i4,'>',2f10.3,/)
-30        format (//,2x,'============================================',/, &
+1008	format (2x,'|',i4,'>',2f10.3,/)
+30    	format (//,2x,'============================================',/, &
       2x,'Equilibrium geometry and masses of state',i3,/,&
      2x,'============================================', &
                //,2x,'atom',5x,'mass',9x,'x',14x,'y',14x,'z',/)
-40        format(2x,a1,5x,f9.4,3(f12.5,2x))
-90        format(//,10x,'Equilibrium geometry in cartesian coordinates for') 
-91        format(10x,'the two electronic states and their difference r',/)
-110       format(2x,i3,2x,e15.7,4x,e15.7,4x,e15.7)
-140       format(//,2x,'+--------------------------------------------------------------+',/&
+40    	format(2x,a1,5x,f9.4,3(f12.5,2x))
+90    	format(//,10x,'Equilibrium geometry in cartesian coordinates for') 
+91    	format(10x,'the two electronic states and their difference r',/)
+110   	format(2x,i3,2x,e15.7,4x,e15.7,4x,e15.7)
+140   	format(//,2x,'+--------------------------------------------------------------+',/&
      2x,'|  Frequencies of the vibrations of the two electronic states  |',/& 
      2x,'|  their difference and normal coordinates shift K:            |',/&
      2x,'|                                                              |',/&
      2x,'|    Q1 = L1(tr)*(x-x01); Q2=L2(tr)*(x-x02)                    |',/&
      2x,'|    Q1 = J Q2 + K;  J = L1(tr)*L2; K = L1(tr)*(x02-x01)       |',/&
      2x,'+--------------------------------------------------------------+',/)
-157       format(2x,i3,2x,a,3x,4(i2,1x))
-159       format(//,2x,'+----------------------+',/,&
+157   	format(2x,i3,2x,a,3x,4(i2,1x))
+159   	format(//,2x,'+----------------------+',/,&
                   2x,'| Internal coordinates |',/,&
 2x,'+----------------------+',/)
-160       format(2x,i3,2x,4(f10.3,3x),4x,'-->',i3,2x,f10.3)
-1601       format(2x,i3,2x,5(f10.3,3x),4x,'-->',i3,2x,f10.3)
-161       format(2x,i3,2x,2(f10.2,4x),4(f10.3,3x),20x,10(f5.2,x,'Q2(',i3,')'))
-1611       format(2x,i3,2x,5(f10.3,3x),20x,10(f5.2,x,'Q2(',i3,')'))
-162    format(2x,i3,2x,2(f10.3,3x))
+160   	format(2x,i3,2x,4(f10.3,3x),4x,'-->',i3,2x,f10.3)
+1601   	format(2x,i3,2x,5(f10.3,3x),4x,'-->',i3,2x,f10.3)
+161   	format(2x,i3,2x,2(f10.2,4x),4(f10.3,3x),20x,10(f5.2,x,'Q2(',i3,')'))
+1611   	format(2x,i3,2x,5(f10.3,3x),20x,10(f5.2,x,'Q2(',i3,')'))
+162     format(2x,i3,2x,2(f10.3,3x))
 163     format(//,2x,'-------------------',/, & 
                   2x,'Reduced Frequencies',/, & 
                   2x,'-------------------')
-164       format(//,2x,'--------------------------------',/&
+164   	format(//,2x,'--------------------------------',/&
                  ,2x,'Zero point energy and DE in cm-1',/&
                  ,2x,'--------------------------------',//&
                  ,2x,'E01= ',f12.2,4x,'E02= ',f12.2,4x,'DE= ',f12.2,4x,'DE00= ',f12.2)
-170       format(//,10x,'Normal modes in cartesian ',&
+170   	format(//,10x,'Normal modes in cartesian ',&
            'coordinates for state2')
-171       format(//,10x,'Normal modes in mass-weighted cartesian ',&
+171   	format(//,10x,'Normal modes in mass-weighted cartesian ',&
            'coordinates for state2')
-1123      format(//,10x,'Order number of actives modes,frequencies of')  
-1124      format(9x,'coupling gaussian,eq. displacement rel. to  state 2') 
-810       format(2x,i3,4x,e15.7,4x,e15.7)
-1125      format(//,'Coupling factor',4x,e15.7) 
-241       format(//,2x,'=============================',/&
+1123  	format(//,10x,'Order number of actives modes,frequencies of')  
+1124  	format(9x,'coupling gaussian,eq. displacement rel. to  state 2') 
+810   	format(2x,i3,4x,e15.7,4x,e15.7)
+1125  	format(//,'Coupling factor',4x,e15.7) 
+241   	format(//,2x,'=============================',/&
      2x,'Normal coordinates shift K:',/&
      2x,'Q1 = J Q2 + K;  J = L1^(-1)*L2',/&
       2x,'=============================',//)
-297    format(/,2x,'Starting Franck-Condon integrals calculation...')
-298    format(2x,'...done')
-2980    format(//, &
+297	format(/,2x,'Starting Franck-Condon integrals calculation...')
+298	format(2x,'...done')
+2980	format(//, &
                2x,'+------------------------------',/, &
                2x,'| N. of calculated FC integrals: ', i8,/, &
                2x,'+------------------------------',/)
-2991    format(/,2x,'+-----------+',/&
-        ,2x,'| I/O Files |',/&
-,2x,'+-----------+',/)
-299     format(/,2x,'+-------------------------+',/&
+2991	format(/,2x,'+-----------+',/&
+                ,2x,'| I/O Files |',/&
+                ,2x,'+-----------+',/)
+299	format(/,2x,'+-------------------------+',/&
 ,2x,'| Franck-Condon integrals |',/&
 ,2x,'+-------------------------+',//)
-199     format(/,2x,'+-------------------------------------------------+',/&
+199	format(/,2x,'+-------------------------------------------------+',/&
 ,2x,'| Franck-Condon integrals for molecule ',a,/&
 ,2x,'+-------------------------------------------------+',//)
-300    format(/,2x,'Franck-Condon factors sum:',f14.6,/)
-301    format(/,2x,'Franck-Condon factors sum - |<0|0>|^2:',f14.6,/)
+300	format(/,2x,'Franck-Condon factors sum:',f14.6,/)
+301	format(/,2x,'Franck-Condon factors sum - |<0|0>|^2:',f14.6,/)
 308     format(//,2x,'======================================',/ &
                   2x,'Orientation after Reordering Procedure',/ & 
 2x,'======================================',/)
 310     format(2x,a5,2x,3(i3,3x,a5))
 311     format(2x,a5,2x,3(i3,3x,f8.4))
-!2412      format(2x,'Mode',4x,'freq. |1>', 4x,&
+!2412  	format(2x,'Mode',4x,'freq. |1>', 4x,&
 !             'freq. |2>',3x,'shift (K)',3x,'shift (J(tr)*K)',17x,'Delta(freq)',7x,'Mixed'/)
-2412      format(2x,'Mode',4x,'freq. |1>', 4x,&
+2412  	format(2x,'Mode',4x,'freq. |1>', 4x,&
              'freq. |2>',3x,'K (adim)',3x,'J(tr)*K (adim)'/)
-2413      format(2x,'Mode',4x,'freq. |1>', 4x,&
+2413  	format(2x,'Mode',4x,'freq. |1>', 4x,&
              'freq. |2>',3x,'K (adim)',3x,'J(tr)*K (adim)',3x,'K (Ang*amu^1/2)',3x,'J(tr)*K (Ang*amu^1/2)'/)
-6759      format(2x,i3,8x,f10.3,4x,f10.3,6x,f10.3,4x,f10.3)
-261       format(///,4x,'+----------------------------------------------------+',/&
+6759  	format(2x,i3,8x,f10.3,4x,f10.3,6x,f10.3,4x,f10.3)
+261   	format(///,4x,'+----------------------------------------------------+',/&
               ,4x,'|  Transformation matrix J from the normal modes of  |',/&
      ,4x,'|  state 2 (Q2) to those of the state 1 (Q1)         |',/&
      ,4x,'|                                                    |',/&
      ,4x,'|        Q1 = J * Q2 + K       (J = L1^(tr)L2)       |',/&
      ,4x,'+----------------------------------------------------+',/)
-4000      format (' kgk',f10.7)
-395       format (//,5x,'Franck-Condon integral between the ground', &
+4000  	format (' kgk',f10.7)
+395   	format (//,5x,'Franck-Condon integral between the ground', &
      'states:', e15.7,/)
-1976      format (//,2x,'First electronic state:',/,&
+1976  	format (//,2x,'First electronic state:',/,&
              2x,'ex. mode',10x,'quantum number',/)
-1970      format (3x,i2,20x,i3)
-1977      format (//,2x,'Second electronic state:',/,&
+1970  	format (3x,i2,20x,i3)
+1977  	format (//,2x,'Second electronic state:',/,&
              2x,'ex. mode',10x,'quantum number',/)
-1978      format (//,2x,'Total Franck-Condon factors: ',i8)
-4100      format (' ypy',f10.7)
-666     format (//,2x,'Number of Franck-Condon factors to be calculated:',i10)
+1978  	format (//,2x,'Total Franck-Condon factors: ',i8)
+4100  	format (' ypy',f10.7)
+666 	format (//,2x,'Number of Franck-Condon factors to be calculated:',i10)
 6661    format (/,2x,'Vibrational states in | ', a,' >: ', i10)
 6662    format (/,2x,'Vibrational states in | ', a,' >: ', i10)
 6663     format (/,2x,'Total vibrational states : ', i10)
@@ -154,6 +154,8 @@
 9982    format(/,2x,'Maximum DE:',2X,f10.2,3x,'Max Coupling:',2x,f12.6,/)
 9983    format(/,2x,'States within DE:',2X,i6,3x,'States within DE and RATIO:',2x,i6,/)
 9984    format(/,2x,'Index of State with maximum coupling:',2x,i6,/)
+9988    format(/,2x,'Total number of states found:',2X,6i,/)
+9900    format(/,2x,i6,2x,'State Selected out of ',2X,6i,/)
 
 305     format(//,2x,'=========================================',/ &
                   2x,'Standard Orientation after Axis-Switching',/ & 

@@ -6,7 +6,7 @@ IF("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
   MESSAGE(FATAL_ERROR "In-source build prohibited.")
 ENDIF("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
 
-SET(CMAKE_Fortran_COMPILER_INIT ifort)
+SET(CMAKE_Fortran_COMPILER_INIT gfortran)
 
 enable_language(Fortran)
 
@@ -18,10 +18,18 @@ SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
 SET(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR}/mod)
 
-#add_definitions(-DINTELF95)
+IF(CMAKE_Fortran_COMPILER_INIT MATCHES ifort)
+  add_definitions(-DIFORT)
 #SET(CMAKE_Fortran_FLAGS "-O3 -xSSSE3 -heap-arrays 10 -openmp")
-SET(CMAKE_Fortran_FLAGS "-ftrapuv -traceback -debug -O0 -g -save-temps -fpic -Wl,-no_pie")
+#SET(CMAKE_Fortran_FLAGS "-ftrapuv -traceback -debug -O0 -g -save-temps -fpic -Wl,-no_pie")
 #SET(CMAKE_Fortran_FLAGS " -debug -traceback -O0")
+ENDIF(CMAKE_Fortran_COMPILER_INIT MATCHES ifort)
+
+IF(CMAKE_Fortran_COMPILER_INIT MATCHES gfortran)
+  add_definitions(-DGFORT)
+  SET(CMAKE_Fortran_FLAGS " -g -O0 -fno-align-commons")
+  #SET(CMAKE_Fortran_FLAGS " -Werror=line-truncation")
+ENDIF(CMAKE_Fortran_COMPILER_INIT MATCHES gfortran)
 
 SET(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR}/mod)
 

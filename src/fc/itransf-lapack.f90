@@ -527,9 +527,9 @@ module internal_transformation
                          KMT(k)*sqrt(cfac*molecule(2)%normodes%vibration(k)%freq), & 
                          trns%KM(k), KMT(k)
       write(233,'(i3,2x,5(g15.8,2x))') k, molecule(1)%normodes%vibration(k)%freq, molecule(2)%normodes%vibration(k)%freq,  &
-                         (trns%KM(k)*sqrt(cfac*molecule(1)%normodes%vibration(k)%freq)), &
-                         molecule(1)%normodes%vibration(k)%freq*(trns%KM(k)*sqrt(cfac*molecule(1)%normodes%vibration(k)%freq)), &
-                         molecule(1)%normodes%vibration(k)%freq*(trns%KM(k)*sqrt(cfac*molecule(1)%normodes%vibration(k)%freq))**2/2.0_dp
+      (trns%KM(k)*sqrt(cfac*molecule(1)%normodes%vibration(k)%freq)), &
+      molecule(1)%normodes%vibration(k)%freq*(trns%KM(k)*sqrt(cfac*molecule(1)%normodes%vibration(k)%freq)), &
+      molecule(1)%normodes%vibration(k)%freq*(trns%KM(k)*sqrt(cfac*molecule(1)%normodes%vibration(k)%freq))**2/2.0_dp
       !write(233,*)  trns%KM(k)
     end do
     

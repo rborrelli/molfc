@@ -755,7 +755,7 @@ XYZ:        do ixi = 1, 3
             ! which we have already written to file.
             if (all(z(ivib) > 0)) then
                 sumfcht = sumfcht + fccl%FCHT(r)
-                write(778,'(g12.6,2x,E16.6,<nexvib>(i4,2x),<nexvib>(i4,2x))') dot_product(freq,z(ivib)), fccl%FCHT(r), z(ivib), ivib-nvib
+                write(778,'(g12.6,2x,E16.6,8(i4,2x),8(i4,2x))') dot_product(freq,z(ivib)), fccl%FCHT(r), z(ivib), ivib-nvib
             end if
 
         end do

@@ -15,16 +15,20 @@ module output
 
         subroutine print_headers (state, iuf)
         
+        character(len=45) line
         type(state_t), intent(in) :: state
         integer iuf, J
 
         J = int((44-(len_trim(state%id)+5))/2)
-        write(iuf,165) trim(state%id)
+        write(line(1:2),*) '|'
+        write(line(3:41),*) trim(state%id)
+        write(line(42:45),*) '|'
+        write(iuf,165)line
 
 165   	format(//,19x,'+------------------------------------------+',/,&
-     	          19x,'|            ELECTRONIC STATE              |',/,&
-                  19x,'|',<J>x    '| ',a,' >'<J>x,    '|',/,&
-     		      19x,'+------------------------------------------+',/)
+                  19x,'|            ELECTRONIC STATE              |',/,&
+                  19x,a,/,&
+                  19x,'+------------------------------------------+',/)
 
         end subroutine print_headers
 
@@ -135,11 +139,11 @@ module output
    80 	format (2x,a3,a2,10f12.5)
    90 	format (1h1)
 165   	format(//,2x,'--------------------------------------------------------------',/,&
-     	          2x,'Mass-weighted normal coordinates of electronic state  | ',a '>',/,&
-     		  2x,'--------------------------------------------------------------',/)
+                  2x,'Mass-weighted normal coordinates of electronic state  | ',a '>',/,&
+                  2x,'--------------------------------------------------------------',/)
 166   	format(//,2x,'---------',/,&
-           	  2x,'Molecule:',2x,a,/,&
-     		  2x,'---------',/)
+                  2x,'Molecule:',2x,a,/,&
+                  2x,'---------',/)
 
         return
       	end subroutine print_normal_modes
@@ -148,9 +152,9 @@ module output
 
        subroutine job_headers
 
-       external hostnm, getlog, getpid
+       !external hostnm, getlog, getpid
        integer getpid
-       character (len=80) getlog, hostnm
+       character (len=80) getlog, hostname
 
        integer date_time (8)
        character (len = 12) real_clock (3), month(12), &
@@ -172,7 +176,13 @@ module output
        write(fout,12)date_time(3),trim(actual_month),date_time(1), &
                  date_time(5),date_time(6),date_time(7) 
        !write(fout,199)getpid(), getlog(), hostnm()
-       write(fout,198)getpid(), hostnm()
+#ifdef GFORT
+       call hostnm(hostname)
+#endif
+#ifdef IFORT
+      hostname = hostnm()
+#endif
+       write(fout,198)getpid(), hostname
 !       write(fout,11)
 
 10   format( 19X,'+--------------------------------------------------+',/,&

@@ -659,16 +659,17 @@ contains
         ! get childs of <input>, ie all the files xnodes
         nList => getElementsByTagName(xnode, "job")
         njob = getLength(nList)
+        if (njob == 0) ierr = error(0,"One <job> must be specified")
+        !if (njob == 0) ierr = error(0,"At least one <job> must be specified")
+        !allocate(job(1:njob),stat=alloc_err) ! Allocate job array
+        !if (alloc_err /= 0) ierr = error(0,"Cannot allocate JOBS.")
 
-        if (njob == 0) ierr = error(0,"At least one <job> must be specified")
-
-        allocate(job(1:njob),stat=alloc_err) ! Allocate job array
-        if (alloc_err /= 0) ierr = error(0,"Cannot allocate JOBS.")
-
-        do i = 0, getLength(nList) - 1
-            np => item(nList,i)
-            call get_job(np, job(i+1))
-        end do
+        !do i = 0, getLength(nList) - 1
+        !    np => item(nList,i)
+            !call get_job(np, job(i+1))
+            np => item(nList,0)
+            call get_job(np, job)
+        !end do
 
         return
     end subroutine read_jobs
@@ -1234,7 +1235,7 @@ VB:             do k = 0, getLength(vibList) - 1
         ! This variables and parameters are used to assign internal coordinates (see
         ! below).
         character(len=4) :: ctype
-        character(len=4), parameter :: ictype(8) = (/'s', 'b', 'l', 'w', 't', 'd', 'linc', 'linp'/)
+        character(len=4), parameter :: ictype(8) = (/'s   ', 'b   ', 'l   ', 'w   ', 't   ', 'd   ', 'linc', 'linp'/)
         integer, parameter :: ntype(8) = (/2, 3, 4, 4, 2, 4, 4, 4/)
         real(kind=dp) :: coeff
 
