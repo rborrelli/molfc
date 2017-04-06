@@ -58,7 +58,7 @@ module procsys
             do k = 1, system%state(is)%molecule%structure%numat
               system%state(is)%molecule%normodes%vibration(j)%atom(k)%d(1:3) = &
               system%state(is)%molecule%normodes%vibration(j)%atom(k)%d(1:3) * &
-              sqrt(system%state(is)%molecule%normodes%vibration(j)%atom(k)%elem%AM)
+              sqrt(system%state(is)%molecule%normodes%vibration(j)%atom(k)%amass)
             end do
             ! Renormalize the j-th normal coordinate.
             norm = zero
@@ -132,47 +132,46 @@ module procsys
     !  Riorienta gli assi del sistema di riferimento della molecola secondo quanto specificato |
     !  dal vettore <frame>.                                                                    |
     !------------------------------------------------------------------------------------------+
-    if (allocated(proc%frame)) then
-        allocate(nori(1:3))
-        do i = 1, size(proc%frame(:))
-            is = get_state_from_id(system,proc%frame(i)%state)
-            system%state(is)%molecule%reorient = .true.
-            !jj = 0
-            !call build_data_array(proc%frame(i)%axis,system%state(is)%molecule%orient,jj)
-            system%state(is)%molecule%orient = proc%frame(i)%axis
-            nori = abs(system%state(is)%molecule%orient)
-            !if (ios /= 0) ierr = error(0,"Cannot read new frame orientation. Check <frame> tag.")
-            !------------------------+
-            ! Riorienta la struttura |
-            !------------------------+
-            do kk = 1, system%state(is)%molecule%structure%numat 
-              tmp_coord = system%state(is)%molecule%structure%atom(kk)%coord(:)
-              system%state(is)%molecule%structure%atom(kk)%coord(:) = tmp_coord(nori(:))
-              forall (io=1:3) system%state(is)%molecule%structure%atom(kk)%coord(io) = & 
-                              sign(abs(one),real(system%state(is)%molecule%orient(io),kind(one)))* &
-                              system%state(is)%molecule%structure%atom(kk)%coord(io)
-            end do
-            !-------------------------+ 
-            ! Riorienta le vibrazioni |
-            !-------------------------+
-            	!if (.true.) then
-            do j = 1, system%state(is)%molecule%nvib
-              do kk = 1, system%state(is)%molecule%structure%numat
-                 tmp_coord = system%state(is)%molecule%normodes%vibration(j)%atom(kk)%d(:)
-                 do kj = 1, 3
-                    system%state(is)%molecule%normodes%vibration(j)%atom(kk)%d(kj) = tmp_coord(nori(kj))
-                 end do
-              end do
-              do kk = 1, system%state(is)%molecule%structure%numat
-                forall (io=1:3) system%state(is)%molecule%normodes%vibration(j)%atom(kk)%d(io) = &
-                                sign(abs(one),real(system%state(is)%molecule%orient(io),kind(one)))* & 
-                                system%state(is)%molecule%normodes%vibration(j)%atom(kk)%d(io) 
-              end do
-            end do
-            	!end if
+    allocate(nori(1:3))
+    do i = 1, size(proc%frame(:))
+        is = get_state_from_id(system,proc%frame(i)%state)
+        system%state(is)%molecule%reorient = .true.
+        !jj = 0
+        !call build_data_array(proc%frame(i)%axis,system%state(is)%molecule%orient,jj)
+        system%state(is)%molecule%orient = proc%frame(i)%axis
+        nori = abs(system%state(is)%molecule%orient)
+        !if (ios /= 0) ierr = error(0,"Cannot read new frame orientation. Check <frame> tag.")
+        !------------------------+
+        ! Riorienta la struttura |
+        !------------------------+
+        do kk = 1, system%state(is)%molecule%structure%numat 
+          tmp_coord = system%state(is)%molecule%structure%atom(kk)%coord(:)
+          system%state(is)%molecule%structure%atom(kk)%coord(:) = tmp_coord(nori(:))
+          forall (io=1:3) system%state(is)%molecule%structure%atom(kk)%coord(io) = & 
+                          sign(abs(one),real(system%state(is)%molecule%orient(io),kind(one)))* &
+                          system%state(is)%molecule%structure%atom(kk)%coord(io)
         end do
-        deallocate(nori)
-    end if
+        !-------------------------+ 
+        ! Riorienta le vibrazioni |
+        !-------------------------+
+		!if (.true.) then
+        do j = 1, system%state(is)%molecule%nvib
+          do kk = 1, system%state(is)%molecule%structure%numat
+             tmp_coord = system%state(is)%molecule%normodes%vibration(j)%atom(kk)%d(:)
+             do kj = 1, 3
+                system%state(is)%molecule%normodes%vibration(j)%atom(kk)%d(kj) = tmp_coord(nori(kj))
+             end do
+          end do
+          do kk = 1, system%state(is)%molecule%structure%numat
+            forall (io=1:3) system%state(is)%molecule%normodes%vibration(j)%atom(kk)%d(io) = &
+                            sign(abs(one),real(system%state(is)%molecule%orient(io),kind(one)))* & 
+                            system%state(is)%molecule%normodes%vibration(j)%atom(kk)%d(io) 
+          end do
+        end do
+		!end if
+    end do
+    deallocate(nori)
+
     ! ----------------------------------------------------------------+ 
     ! N.B.: Le strutture ed i modi normali si possono riordinare SOLO |
     ! dopo aver riorientato gli assi del sistema.                     |

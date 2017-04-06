@@ -1,3 +1,0 @@
-INTC needs BLAS libraries
-
-ifort -o intc *.o -L /opt/intel/composer/mkl/lib/ -lmkl_core -lmkl_intel -lmkl_sequential libcolib.a

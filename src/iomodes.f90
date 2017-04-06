@@ -97,7 +97,8 @@ contains
                     if (ios == 0) then
                         inmd = inmd + 1
                         do j = 1, icol
-                            system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(i2)%elem = elmnts(mapel(i3))
+                            system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(i2)%amass = &
+                            system%state(istate)%molecule%structure%atom(i2)%elem%AM
                             system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(i2)%d(i1) = aus(j)
                         end do
                     end if
@@ -211,9 +212,8 @@ contains
                     if (ios == 0) then
                         inmd = inmd + 1
                         do j = 1, icol
-                            !system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(i2)%elem = elmnts(mapel(i3))
-                            system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(i2)%elem = &
-                            system%state(istate)%molecule%structure%atom(i2)%elem
+                            system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(i2)%amass = &
+                            system%state(istate)%molecule%structure%atom(i2)%elem%AM
                             system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(i2)%d(1:3) = aus(3*(j-1)+1:3*j)
                         end do
                     end if
@@ -282,8 +282,8 @@ contains
         do k = 1, NVBR
             system%state(istate)%molecule%normodes%vibration(k)%id = k
             do l = 1, NMAT
-                system%state(istate)%molecule%normodes%vibration(k)%atom(l)%elem = &
-                system%state(istate)%molecule%structure%atom(l)%elem
+                system%state(istate)%molecule%normodes%vibration(k)%atom(l)%amass = &
+                system%state(istate)%molecule%structure%atom(l)%elem%AM
             end do
         end do
 
@@ -404,8 +404,8 @@ contains
         do k = 1, NVBR
             system%state(istate)%molecule%normodes%vibration(k)%id = k
             do l = 1, NMAT
-                system%state(istate)%molecule%normodes%vibration(k)%atom(l)%elem = &
-                system%state(istate)%molecule%structure%atom(l)%elem
+                system%state(istate)%molecule%normodes%vibration(k)%atom(l)%amass = &
+                system%state(istate)%molecule%structure%atom(l)%elem%AM
             end do
         end do
 
@@ -579,8 +579,8 @@ contains
                             !  print *, 'i1: ', i1, 'iat: ', iat, 'i2: ', i2
                             inmd = inmd + 1
                             do j = 1, icol
-                                system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(iat)%elem = &
-                                system%state(istate)%molecule%structure%atom(iat)%elem
+                                system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(iat)%amass = &
+                                system%state(istate)%molecule%structure%atom(iat)%elem%AM
                                 system%state(istate)%molecule%normodes%vibration(mkc(j))%atom(iat)%d(i2) = aus(j)
                             end do
                         end if
@@ -664,8 +664,8 @@ contains
                             read(iu,*) disp(1:3)
                             system%state(istate)%molecule%normodes%vibration(idk)%id = idk
                             system%state(istate)%molecule%normodes%vibration(idk)%freq = freq
-                            system%state(istate)%molecule%normodes%vibration(idk)%atom(iat)%elem = &
-                            system%state(istate)%molecule%structure%atom(iat)%elem
+                            system%state(istate)%molecule%normodes%vibration(idk)%atom(iat)%amass = &
+                            system%state(istate)%molecule%structure%atom(iat)%elem%AM
                             system%state(istate)%molecule%normodes%vibration(idk)%atom(iat)%d(1:3) = disp(1:3)
                     end do
                 end if
@@ -760,8 +760,7 @@ RDWM:    do
 	      read (line,*, iostat=ios)  asym , dx, dy, dz
 	      if (ios == 0) then
 	        iam = iam + 1
-                !  qstate(istate)%molecule(imol)%normodes%vibration(mkc)%atom(iam)%elem%Sym = asym 
-                  system%state(istate)%molecule%normodes%vibration(mkc)%atom(iam)%elem = elmnts(mapel(asym))
+                  system%state(istate)%molecule%normodes%vibration(mkc)%atom(iam)%amass = elmnts(mapel(asym))%AM
                   system%state(istate)%molecule%normodes%vibration(mkc)%atom(iam)%d(1:3) = (/dx, dy, dz/)
  	      end if
               

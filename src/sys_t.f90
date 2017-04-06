@@ -25,24 +25,24 @@ module system_type
 	end type element
 
 	type, public :: atom_t
-		real(kind = dp) coord(1:3)
+		real(kind = dp) :: coord(1:3) = zero
 		type(element) elem
 	contains
 		procedure :: bond
 	end type atom_t
 
 	type, public :: displacement_t
-		real(kind = dp) d(1:3)
-		type(element) elem
+		real(kind = dp) :: d(1:3) = zero
+		real(kind = dp) amass
 	end type displacement_t
 
 	type, public :: vibration_t
 		real(kind = dp) freq
-		real(kind = dp) :: amp = zero, & ! --- Parameters for gaussian type coupling.
-		pos = zero, &
-		coeff = zero
-		real(kind = dp) :: fcpl = zero, & ! --- First order counpling
-		scpl = zero ! --- Second order coupling
+		!real(kind = dp) :: amp = zero, & ! --- Parameters for gaussian type coupling.
+		!pos = zero, &
+		!coeff = zero
+		!real(kind = dp) :: fcpl = zero, & ! --- First order counpling
+		!scpl = zero ! --- Second order coupling
 		integer id
 		integer :: nq = 0
 		type(displacement_t), allocatable :: atom(:)
