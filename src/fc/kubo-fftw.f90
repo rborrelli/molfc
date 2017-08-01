@@ -45,6 +45,7 @@ contains
         real(kind=dp) :: t1, t2, xi(1:4), yi(1:4), fk_r, fk_i
         
         real(kind=dp), allocatable, dimension(:) :: tan2t, st2, pf!, thz1
+        real(kind=dp), allocatable :: SR(:)
         complex(kind=dpc), allocatable, dimension(:) :: Tg, Cg, DC
         complex(kind=dpc), allocatable, dimension(:,:) :: Xm, Te, TH
         complex(kind=dpc), allocatable, dimension(:,:) :: Ym, Ce, TT
@@ -81,6 +82,8 @@ contains
         write(fout,*) 'Tau range ', TauRange
         write(fout,*) '====================================== '
 
+        allocate(SR(1:nvib,1:nvib))
+        SR = invm(S)
         allocate(f(1:N))
         allocate(G(1:ntau),sdphi(1:ntau),detphi(1:ntau))
         allocate(pf(1:nvib))
@@ -90,7 +93,7 @@ contains
 
         pf = (one-exp(-beta*wg))**2
         call cpu_time(t1)
-        !$OMP PARALLEL  DEFAULT(none) PRIVATE(k,tau,z,p,q,m,StS,wtan,wcot,at,atm,atc,tan2t,thz1,Xm,Te,Tg,Ym,Ce,Cg,TH,TT,st2,phi,Y) SHARED(sdphi,G,S,D,DC,dtau,wg,we,nvib,beta,pf,ntau,detphi)
+        !$OMP PARALLEL  DEFAULT(none) PRIVATE(k,tau,z,p,q,m,StS,wtan,wcot,at,atm,atc,tan2t,thz1,Xm,Te,Tg,Ym,Ce,Cg,TH,TT,st2,phi,Y) SHARED(sdphi,G,S,SR,D,DC,dtau,wg,we,nvib,beta,pf,ntau,detphi)
         allocate(Xm(1:nvib,1:nvib),Tg(1:nvib),Te(1:nvib,1:nvib))
         allocate(Ym(1:nvib,1:nvib),Cg(1:nvib),Ce(1:nvib,1:nvib))
         allocate(TH(1:nvib,1:nvib),TT(1:nvib,1:nvib))
@@ -115,7 +118,7 @@ contains
                         wcot = we(m)/tan2t(m)
                         at = at + StS*wtan
                         atc = atc + StS*wcot
-                        atm = atm + StS/wtan
+                        atm = atm + SR(p,m)*SR(q,m)/wtan
                     end do
                     Te(p,q) = cmplx(zero,at,dpc)
                     Ce(p,q) = cmplx(zero,-atc,dpc)
