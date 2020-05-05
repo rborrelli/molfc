@@ -75,5 +75,5 @@ ELSE(Enable_MKL)
   target_link_libraries(molfc3 slatec fftw3 fox_dom lapack blas pthread)
 ENDIF(Enable_MKL) 
 
-install(TARGETS molfc3 DESTINATION /Users/lello/Applications/bin)
+install(TARGETS molfc3 DESTINATION ${HOME}/bin)
 
