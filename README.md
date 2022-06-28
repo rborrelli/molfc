@@ -11,7 +11,8 @@ normal mode displacements and Duschinsky effects.
 5. R. Borrelli, A. Capobianco, A. Peluso, Can. J. Chem., 91, 495 (2013).
 
 ##Downloading the code
-Then, to clone the repository, you can simply run
+
+To clone the repository, you can simply run
 ```
 git clone --recursive git://github.com/rborrelli/molfc.git
 
